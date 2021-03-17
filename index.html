@@ -7,32 +7,35 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<div class="container">
+<body class="">
+<div class="container fixed-top">
 	<header class="row">
-		<nav class="col navbar navbar-expand navbar-primary bg-light">
-			<a href="index.html" class="navbar-brand">Orifurnitures</a>
+		<nav class="col navbar navbar-expand navbar-dark bg-warning ">
+			<a href="index.html" class="navbar-brand  text-dark">Orifurnitures</a>
 			<ul class="navbar-nav mx-3">
 				<li class="nav-item active mx-3"><a href="#">Se connecter</a></li>
 				<li class="nav-item mx-3"><a href="#">Contact</a></li>
 				<li class="nav-item mx-3"><a href="#">Favoris</a></li>
 				<li class="nav-item mx-3"><a href="#">Panier</a></li>
+				<li class="nav-item mx-3"><a href="#">Recherche</a></li>
 			</ul>
 		</nav>
 	</header>
 </div>
-<div class="jumbotron">
-   <h1>Retrouvez tous nos meubles Orinofurnitures!</h1>
+<div class="jumbotron jumbotron-fluid">
+   <div class="container">
+	<h1 class=" font-weight-bold text-dark">Retrouvez notre sélection de meubles Orifurnitures !</h1>
+	</div>
 </div>
 <section class="row">
-	<div class="col">
+	<div class="col my-2">
 	  <div id="carouselControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-			  <img src="" class="d-block w-100" alt="meuble">
+			<div class="carousel-item active text-center">
+			  <img src="../../../img-projet/oak_4.jpg" class="d-block w-50 mx-auto rounded" alt="meuble1">
 			</div>
 			<div class="carousel-item">
-			  <img src="" class="d-block w-100" alt="meuble2">
+			  <img src="../../../img-projet/oak_2.jpg" class="d-block w-50 mx-auto rounded" alt="meuble2">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
@@ -48,31 +51,27 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-lg-6">
-			<div class="card">
+			<div class="card borderPlus bg-secondary text-warning my-2">
 				<img src=".png" class="card-img-top" alt="">
 				<div class="card-body">
-					<h5 class="card-title">Meubles</h5>
-					<p class="card-text">Faîtes votre choix</p>
-					<button class="btn-info">bouton</button>
-					<p class="">texte</p>
-					<p class="">texte</p>
-				</div>
-				<div class="card-body">
-					<h5 class="card-title"></h5>
-					<p class="card-text">Faîtes votre choix</p>
-					<button class="btn-primary">Cliquez</button>
+					<h5 class="card-title text-warning">Table en croix</h5>
+					<p class="card-text">Description</p>
+					<p class="card-text">Disponible</p>
+					<p class="">Prix</p>
+					<button class="btn btn-info">En savoir plus</button>
+					
 				</div>
 			</div>
 		</div>
 		<div class="col-12 col-lg-6">
-			<div class="card">
+			<div class="card borderPlus my-2">
 				<img src=".png" class="card-img-top" alt="">
 				<div class="card-body">
-					<h5 class="card-title">Titre</h5>
-					<p class="card-text">Faîtes votre choix</p>
-					<button class="btn-primary">Cliquez</button>
-					<p class="">texte</p>
-					<p class="">texte</p>
+					<h5 class="card-title text-warning">Table à déjeuner</h5>
+					<p class="card-text">Description</p>
+					<p class="">Prix</p>
+					<button class="btn btn-info">En savoir plus</button>
+					
 				</div>
 			</div>
 		</div>
@@ -81,49 +80,57 @@
 <div class="container mt-2">
     <div class="row">
       <div class="col-12 col-lg-4">
-        <div class="card">
+        <div class="card borderPlus my-2">
 			<img src=".png" class="card-img-top" alt="">
           	<div class="card-body">
-				<h5 class="card-title">Titre</h5>
-				<p class="card-text">Faîtes votre choix</p>
-				<button class="btn-primary">bouton</button>
+				<h5 class="card-title text-warning">Table à dinner</h5>
+				<p class="card-text">Description</p>
+				<p class="">Prix</p>
+				<button class="btn btn-info">En savoir plus</button>
           </div>
         </div>
       </div>
 	  <div class="col-12 col-lg-4">
-        <div class="card">
+        <div class="card borderPlus my-2">
 			<img src=".png" class="card-img-top" alt="">
           	<div class="card-body">
-				<h5 class="card-title">Titre</h5>
-				<p class="card-text">Faîtes votre choix</p>
-				<button class="btn-primary">bouton</button>
+				<h5 class="card-title text-warning">Banc</h5>
+				<p class="card-text">Description</p>
+				<p class="">Prix</p>
+				<button class="btn btn-info">En savoir plus</button>
           </div>
         </div>
       </div>
 	  <div class="col-12 col-lg-4">
-        <div class="card">
+        <div class="card borderPlus my-2">
 			<img src=".png" class="card-img-top" alt="">
           	<div class="card-body">
-				<h5 class="card-title">Titre</h5>
-				<p class="card-text">Faîtes votre choix</p>
-				<button class="btn-primary">bouton</button>
+				<h5 class="card-title text-warning">Chaise vintage</h5>
+				<p class="card-text">Description</p>
+				<p class="">Prix</p>
+				<button class="btn btn-info">En savoir plus</button>
           </div>
         </div>
       </div>
-	  <footer class="container bg-light text-primary">
+	  <footer class="container bg-light text-warning">
 		<div class="row">
 		  <div class="col">
 			<ul class="list-inline text-center ">
-			   <li class="list-inline-item">A propos</li>
-			   <li class="list-inline-item">Vie privée</li>
-			   <li class="list-inline-item">Conditions d'utilisations</li>
-			   <li class="list-inline-item">Garantie</li>
-			   <li class="list-inline-item">Retours/échanges</li>
-			   <li class="list-inline-item">Trouver un magasin</li>
+				<li class="list-group-item">Orifurniture by Orinoco</li>
+				<li class="list-inline-item"><a href="#">A propos</a></li>
+			   	<li class="list-inline-item"><a href="#">Savoir-faire</a></li>
+			   	<li class="list-inline-item"><a href="#">Nous contacter</a></li>
+			</ul>
+			<ul class="list-inline text-center ">
+			   	<li class="list-inline-item"><a href="#">Trouver un magasin</a></li>
+			   	<li class="list-inline-item"><a href="#">Retours/échanges</a></li>
+			   	<li class="list-inline-item"><a href="#">Garantie</a></li>
 			</ul>
 		  </div>
 		</div>
 	  </footer>
+
+	
 
 <script type="text/javascript" src="script.js"></script>
 
