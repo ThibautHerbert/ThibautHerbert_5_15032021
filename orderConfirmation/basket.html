@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Orifurniture - article</title>
+	<title>Orifurniture - panier de commandes</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 					<li class="nav-item mx-3"><a href="#">Se connecter</a></li>
 					<li class="nav-item mx-3"><a href="#">Contact</a></li>
 					<li class="nav-item mx-3"><a href="#">Favoris</a></li>
-					<li class="nav-item mx-3"><a href="../orderConfirmation/basket.html">Panier</a></li>
+					<li class="nav-item mx-3 active"><a href="basket.html">Panier</a></li>
 					<li class="nav-item mx-3"><a href="#">Recherche</a></li>
 				</ul>
 			</div>
@@ -28,41 +28,35 @@
 </div>
 <div class="jumbotron jumbotron-fluid">
    <div class="container">
-	<h1 class=" font-weight-bold text-dark">Découvrez notre sélection de meubles en chêne véritable Orifurnitures !</h1>
+	<h1 class=" font-weight-bold text-dark">Prêt à commander nos meubles en chêne véritable Orifurnitures !</h1>
 	</div>
 </div>
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-md-7 col-lg-8">
 			<div class="card borderPlus bg-secondary text-warning my-2" id="pictureProduct">
-				<img src="../../../../img-projet/oak_4.jpg" class="card-img-top w-100" alt="article">
 				<div class="card-body">
-					<p class="card-text">Description</p>
+					<p class="card-text">Article(s) de votre panier :</p>
+                    <ul>   
+                        <li class="list-inline-item">Nom du produit</li>
+                        <li class="list-inline-item">Identifiant produit</li>
+                        <li class="list-inline-item">Prix</li>
+                        <li class="list-inline-item">Quantité</li>
+                    </ul> 
 				</div>
 			</div>
 		</div>
         <div class="col-12 col-md-5 col-lg-4">
 			<div class="card borderPlus bg-secondary text-warning my-2">
 				<div class="card-body" id="descriptionProduct">
-					<h2 class="card-title text-warning">Banc en chêne véritable</h2>
-                    <p class="card-text">Ajouter aux favoris logo coeur</p>
-					<p class="card-text">Identifiant produit</p>
-                    <p class="">Prix</p>
-                    <p class="">Quantité</p>
-                    <label for=vernisSelect>Choisir un vernis :</label>
-                    <select name="vernis" class="vernis">
-                    <option value="">Sélectionnez votre vernis</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>   
-                    </select>
-					<p class="card-text">Disponible</p>
-					<button class="btn btn-warning">Ajouter au panier</button>	
+                    <p class="card-text">Connectez-vous</p>
+					<p class="card-text">Identifiant client</p>
+                    <p class="card-text">Moyens de paiement</p>
+                    <input type="button" onclick="window.location.href='product/product.html'" class="btn btn-info"
+					value="Commander"/>
 				</div>
                 <div class="card-body">
                     <p class="card-text">Livraison offerte à partir de 2000 €</p>
-					<p class="card-text">Identifiant produit</p>
-                    <p class="">Ajouter un avis</p>	
 				</div>
 			</div>
 		</div>
@@ -97,5 +91,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
-<script type="text/javascript" src="product.js"></script>
+<script type="text/javascript" src="basket.js"></script>
 </html>
