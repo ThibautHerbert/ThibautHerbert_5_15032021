@@ -1,28 +1,23 @@
 const pictureProduct = document.querySelector("#pictureProduct");
 const descriptionProduct = document.querySelector("#descriptionProduct");
 
-const fetchFurnitures = async() =>{
-	return await fetch("http://localhost:3000/api/furniture").then(res => res.json());
+const fetchFurniture = async(id) =>{
+	return await fetch(`http://localhost:3000/api/furniture/${id}`).then(res => res.json());
+    
 };
-const showFurnitures = async() => {
-	furnitures = await fetchFurnitures();
-	pictureProduct.innerHTML= (
-		furnitures
-			.map(furniture => (
-				`
+// récupérer les données à partir de l'API et implantation dans le HTML
+const showFurniture = async(id) => {
+	furniture = await fetchFurniture(id);
+    debugger
+	pictureProduct.innerHTML = `
 				<img class="card-img-top" src="${furniture.imageUrl}" />
                 <div class="card-body">
 					<p class="card-text">${furniture.description}</p>
 				</div>
 				`
-				)).join('')	
-	);
-    descriptionProduct.innerHTML= (
-		furnitures
-			.map(furniture => (
-				`
+    descriptionProduct.innerHTML = `
 				<h2 class="card-title text-warning">${furniture.name}</h5>
-                <p class="card-text">N°${furniture._id}</p>
+                <p class="card-text">N° du produit : ${furniture._id}</p>
 				<p class="">${furniture.price} €</p>
                 <label for=quantity>Quantité :</label>
                 <select name="quantity" class="quantity">
@@ -44,9 +39,12 @@ const showFurnitures = async() => {
                     </select>
                 </div>
 				<p class="card-text">Disponible</p>
-				<button class="btn btn-warning">Ajouter au panier</button>
-                `
-				)).join('')	
-	);
+				<button class="btn btn-warning">Ajouter au panier</button>`
 };
-showFurnitures();
+let url = new URL(window.location.href); // permet de charger la page product via le lien href de la page home
+let id = url.searchParams.get("id"); // permet de cibler l'élément clé d'un item pour le chargement de l'URL
+if (id) {
+    showFurniture(id);
+} else {
+    alert('Je ne sais pas quel produit afficher');
+}
