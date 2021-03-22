@@ -12,13 +12,13 @@ const showFurniture = async(id) => {
 	pictureProduct.innerHTML = `
 				<img class="card-img-top" src="${furniture.imageUrl}" />
                 <div class="card-body">
-					<p class="card-text">${furniture.description}</p>
+					<p class="card-text">Description : ${furniture.description}</p>
 				</div>
 				`
     descriptionProduct.innerHTML = `
 				<h2 class="card-title text-warning">${furniture.name}</h5>
                 <p class="card-text">N° du produit : ${furniture._id}</p>
-				<p class="">${furniture.price} €</p>
+				<p class="">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(furniture.price)}</p>
                 <label for=quantity>Quantité :</label>
                 <select name="quantity" class="quantity">
                     <option value="">0</option>

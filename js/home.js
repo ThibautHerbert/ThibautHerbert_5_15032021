@@ -20,7 +20,7 @@ const showFurnitures = async() => {
 					<h5 class="card-title text-warning">${furniture.name}</h5>
 					<p class="card-text">${furniture.description}</p>
 					<p class="card-text">Disponible</p>
-					<p class="">${furniture.price}</p>
+					<p class="">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(furniture.price)} </p>
 					<a href="product/product.html?id=${furniture._id}" class="btn btn-info">En savoir plus</a>
 				</div>
 			</div>
