@@ -51,7 +51,7 @@ if (data) {
 //for (let i = 0 ; i < data.value.length ; i++) { cannot read property length
 
 //let showQuantity = document.querySelector('.qty');
-let quantity = data.length; // ne différencie pas les id entre elles
+let quantity = data.length; // ne différencie pas les id entre elles, compte le nbr total d'articles
 /*if (data !== undefined){
     alert("combien y'a t'il de données: " + data.length);
     for (let i = data.value ; i <= data.length ; i+= data.length) {
