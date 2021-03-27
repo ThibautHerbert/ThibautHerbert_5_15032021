@@ -5,7 +5,7 @@ const fetchFurnitures = async() =>{
 };
 
 const showFurnitures = async() => {
-	furnitures = await fetchFurnitures()
+	let furnitures = await fetchFurnitures();
 	if(furnitures.length == 0){
 		products.innerHTML = `<div class="alert alert-info">Aucun produit n'est disponible</div>`
 		return

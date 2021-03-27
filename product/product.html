@@ -19,7 +19,7 @@
 					<li class="nav-item mx-3"><a href="#">Se connecter</a></li>
 					<li class="nav-item mx-3"><a href="#">Contact</a></li>
 					<li class="nav-item mx-3"><a href="#">Favoris</a></li>
-					<li class="nav-item mx-3"><a href="../orderConfirmation/basket.html">Panier</a></li>
+					<li class="nav-item mx-3"><a href="../orderConfirmation/cart.html">Panier</a></li>
 					<li class="nav-item mx-3"><a href="#">Recherche</a></li>
 				</ul>
 			</div>
@@ -56,12 +56,14 @@
                     <option value="1">1</option>
                     <option value="2">2</option>   
                     </select>
-					<p class="card-text">Disponible</p>
+					<p class="card-text" id="boom">Disponible</p>
 					<button class="btn btn-warning">Ajouter au panier</button>	
 				</div>
                 <div class="card-body">
+					<button class="btn btn-warning" id="cart">Ajouter au panier</button>
                     <p class="card-text">Livraison offerte à partir de 2000 €</p>
                     <p class="">Ajouter un avis</p>	
+					<p class="card-text" id="boom">Disponible</p>
 				</div>
 			</div>
 		</div>
@@ -97,4 +99,5 @@
 
 </body>
 <script type="text/javascript" src="product.js"></script>
+<script type="text/javascript" src="../orderConfirmation/cartManager.js"></script>
 </html>
