@@ -1,42 +1,84 @@
-let firstNameInput = document.querySelector('#firstNameInput');
+var nameInputs = document.querySelector('#firstNameInput');
 let lastNameInput = document.querySelector('#lastNameInput');
-
-
-function nameChecker(nameInputs) { //rajouter conditions pour tirets
-    if(! nameInputs.match(/^([a-zA-Z- ]+)$/)) //regex qui prend que les lettres min et max, les tirets et les espaces
-        return(0);
+// test 1 regex sur le prénom dans une variable (nameInputs.match is not a function s'il n'y a pas value)
+/*var nameChecker = /^([a-zA-Z- ]+)$/;
+if(nameInputs.value.match(nameChecker))
+    nameInputs.style.background = 'blue';
+else
+    nameInputs.style.background = 'red';*/
+function nameChecker(nameInputs) { 
+    if(nameInputs.value.match(/^([a-zA-Z- àâäéèêëïîôöùûüç]+)$/)) //regex qui prend que les lettres min et max, les tirets et les espaces
+        alert('prénom vrai');
     else
-        return(1);
+        nameInputs.style.border = 'red solid 2px';
 }
+
 
 let emailInput = document.querySelector('#emailInput');
 function emailChecker(emailInput){
-    if(! emailInput.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)) //regex spécial email : https://ihateregex.io/expr/email/
-        return(0);
+    if(emailInput.value.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)) //regex spécial email : https://ihateregex.io/expr/email/
+        alert('bon mail');
     else
-        return(1);
-}
+        emailInput.style.border = 'red solid 2px';
+};
+
 
 let zipCodeInput = document.querySelector('#zipCodeInput');
 function zipCodeChecker(zipCodeInput) {
-if(! zipCodeInput.match(/^([0-9]{5}+)$/)) // regex qui ne prend que 5 chiffres sans espace
-        return(0);
-    else
-        return(1);
+if(zipCodeInput.value.match(/^([0-9]{5})$/)) // regex qui ne prend que 5 chiffres sans espace
+    alert('CP ok');
+else
+    zipCodeInput.style.border = 'red solid 2px';
 }
+
+
 // pour les villes et pays :
+                                                        // test Nantes5 ça passe, pourquoi ?
 let cityInput = document.querySelector('#cityInput');
 let countryInput = document.querySelector('#countryInput');
-function textChecker(cityInput, countryInput){
-    if(! cityInput.match(/^([a-zA-Z]+)$/) || countryInput.match(/^([a-zA-Z]+)$/)) //regex qui ne prend que les lettes min et max
-        return(0);
+function cityChecker(cityInput){
+    if(cityInput.value.match(/(?:[-a-zA-Za zA Zàâäéèêëïîôöùûüç]+)/)) /*|| countryInput.match(/^([a-zA-Z])$/))*/ //regex qui ne prend que les lettes min et max
+        alert('bonne ville');
     else
-        return(1);
+        cityInput.style.border = 'red solid 2px';
 }
+function countryChecker(countryInput){
+    if(countryInput.value.match(/(?:[-a-zA-Za zA Zàâäéèêëïîôöùûüç]+)+/)) //regex qui ne prend que les lettes min et max
+        alert('bon pays');
+    else
+        countryInput.style.border = 'red solid 2px';
+}
+
 let addressInput = document.querySelector('#addressInput');
 function addressChecker(addressInput){
-    if(! addressInput.match(/^([a-zA-Z- 0-9]+)$/)) //regex qui prend que les lettres min et max, les chiffres et les tirets et les espaces
-    return(0);
+    if(addressInput.value.match(/[0-9,]{1,4}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+/)) //regex qui prend que les lettres min et max, les chiffres et les tirets et les espaces
+    alert('bonne adresse');
 else
-    return(1);
+    addressInput.style.border = 'red solid 2px';
 }
+
+// au clic sur le bouton confirmer votre commande :
+let orderedConfirm= document.querySelector('#orderedConfirm');
+orderedConfirm.addEventListener('click', () => {
+    nameChecker(nameInputs);
+    emailChecker(emailInput);
+    zipCodeChecker(zipCodeInput);
+    cityChecker(cityInput);
+    countryChecker(countryInput);
+    addressChecker(addressInput);
+})
+
+
+/*emailInput.addEventListener('input', () => {
+    emailInput.value(emailChecker(emailInput));
+});*/
+//let checkEmail = emailInput.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
+
+/* test structure regexp
+var message = 'Bonjour les gens !';
+ var regex = /les/;
+ if(message.match(regex))
+    alert('Tiens, il y a plusieurs personnes ?');
+ else
+    alert('Tout seul...');
+*/

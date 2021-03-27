@@ -67,51 +67,53 @@
 <!--FORMULAIRE DE COMMANDE-->
 <section class="row my-5" id="block-form">
 	<div class="col">
-		<div>
 			<h2 class="mx-3 text-dark" id="form">Pour finaliser la commande, merci de remplir vos coordonnées :</h2>
 			<form class="mx-5">
-				<div class="form-group">
-					<label for="firstNameInput">Prénom</label>
-					<input type="text" class="form-control" id="firstNameInput" aria-describedby="firstNameHelp" placeholder="Sophie">
-					<small id="firstNameHelp" class="form-text text-muted">Indiquez votre prénom.</small>
-				  </div>
-				  <div class="form-group">
-					<label for="lastNameInput">Nom</label>
-					<input type="text" class="form-control" id="lastNameInput" aria-describedby="lastNameHelp" placeholder="Durand">
-					<small id="lastNameHelp" class="form-text text-muted">Indiquez votre nom de famille.</small>
-				  </div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="firstNameInput">Prénom</label>
+						<input type="text" class="form-control" id="firstNameInput" aria-describedby="firstNameHelp" placeholder="Sophie">
+						<small id="firstNameHelp" class="form-text text-muted">Indiquez votre prénom.</small>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="lastNameInput">Nom</label>
+						<input type="text" class="form-control" id="lastNameInput" aria-describedby="lastNameHelp" placeholder="Durand">
+						<small id="lastNameHelp" class="form-text text-muted">Indiquez votre nom de famille.</small>
+					</div>
+				</div>
 				  <div class="form-group">
 					<label for="addressInput">Adresse</label>
-					<input type="email" class="form-control" id="addressHelp" aria-describedby="addressHelp" placeholder="10 rue de la Paix">
+					<input type="text" class="form-control" id="addressInput" aria-describedby="addressHelp" placeholder="10 rue de la Paix">
 					<small id="addressHelp" class="form-text text-muted">Indiquez votre adresse postale avec le numéro de rue.</small>
 				  </div>
-				  <div class="form-group">
-					<label for="zipCodeInput">CP</label>
-					<input type="email" class="form-control" id="zipCodeInput" aria-describedby="cpHelp" placeholder="44000">
-					<small id="zipCodeHelp" class="form-text text-muted">Indiquez votre code postal.</small>
-				  </div>
-				  <div class="form-group">
-					<label for="cityInput">Ville</label>
-					<input type="email" class="form-control" id="cityInput" aria-describedby="cityHelp" placeholder="Nantes">
-					<small id="cityHelp" class="form-text text-muted">Indiquez votre ville.</small>
-				  </div>
-				  <div class="form-group">
-					<label for="countryInput">Pays</label>
-					<input type="email" class="form-control" id="countryInput" aria-describedby="countryHelp" placeholder="France">
-					<small id="countryHelp" class="form-text text-muted">Indiquez votre pays.</small>
-				  </div>
+				<div class="form-row">
+					<div class="form-group col-md-2">
+						<label for="zipCodeInput">CP</label>
+						<input type="text" class="form-control" id="zipCodeInput" aria-describedby="cpHelp" placeholder="44000">
+						<small id="zipCodeHelp" class="form-text text-muted">Indiquez votre code postal.</small>
+					</div>
+					<div class="form-group col-md-5">
+						<label for="cityInput">Ville</label>
+						<input type="text" class="form-control" id="cityInput" aria-describedby="cityHelp" placeholder="Nantes">
+						<small id="cityHelp" class="form-text text-muted">Indiquez votre ville.</small>
+					</div>
+					<div class="form-group col-md-5">
+						<label for="countryInput">Pays</label>
+						<input type="text" class="form-control" id="countryInput" aria-describedby="countryHelp" placeholder="France">
+						<small id="countryHelp" class="form-text text-muted">Indiquez votre pays.</small>
+					</div>
+				</div>
 				<div class="form-group">
-				  <label for="emailInput">Adresse Email</label>
-				  <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="sophiedurand@protonmail.com">
-				  <small id="emailHelp" class="form-text text-muted">Indiquez votre adresse courriel.</small>
+						<label for="emailInput">Adresse Email</label>
+						<input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="sophiedurand@protonmail.com">
+						<small id="emailHelp" class="form-text text-muted">Indiquez votre adresse courriel.</small>
 				</div>
 				<div class="form-group form-check">
 				  <input type="checkbox" class="form-check-input" id="exampleCheck1">
 				  <label class="form-check-label" for="exampleCheck1">Check me out</label>
 				</div>
-				<a href="../orderConfirmation/ordered.html" class="btn btn-info">Confirmer votre commande</a>
+				<a href="#" class="btn btn-info" id="orderedConfirm">Confirmer votre commande</a>
 			</form>
-		</div>
 	</div>
 </section>
 <!-- fin du formulaire-->
@@ -145,5 +147,6 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script src="cart.js"></script>
+	<script src="formCheck.js"></script>
 </body>
 </html>
