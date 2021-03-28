@@ -33,7 +33,7 @@ else
 
 
 // pour les villes et pays :
-                                                        // test Nantes5 ça passe, pourquoi ?
+                                                        // test Nantes5 et France12 ça passe, pourquoi ?
 let cityInput = document.querySelector('#cityInput');
 let countryInput = document.querySelector('#countryInput');
 function cityChecker(cityInput){
@@ -81,4 +81,27 @@ var message = 'Bonjour les gens !';
     alert('Tiens, il y a plusieurs personnes ?');
  else
     alert('Tout seul...');
+*/
+
+//class Constructor pour envoyer les données au serveur
+class product_id { // ou un nom avec majuscule ?
+    constructor (firstName, lastName, address, city, email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.email = email;
+    }
+}
+//this.firstNameInput à la place de this.firstName ? et ainsi de suite ?
+
+/*
+if(nameInputs || email || zipCodeInput || cityInput || countryInput || addressInput || = style.border= ‘red solid 2px’) alors : {
+alert('erreur dans le formulaire, resaissez correctement vos informations');
+} else {
+
+localStorage.setItem(‘formStorage’, JSON.stringify());
+localStorage.setItem(‘orderIdStorage’, JSON.stringify());
+window.location.href; //=ordered.html // href désactivé sur le html ne mène à rien
+} 
 */

@@ -3,62 +3,49 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Orifurniture - panier de commandes</title>
+	<title>Orifurniture - Confirmation de commande</title>
+    <link rel="shortcut icon" type="image/png" href="../image/orinoco.png">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-    <div class="container fixed-top">
-        <header class="row">
-            <nav class="col navbar navbar-expand-md navbar-dark bg-warning ">
-                <a href="../index.html" class="navbar-brand  text-dark">Orifurniture</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="navbarContent" class="collapse navbar-collapse">
-                    <ul class="navbar-nav mx-3">
-                        <li class="nav-item mx-3"><a href="#">Se connecter</a></li>
-                        <li class="nav-item mx-3"><a href="#">Contact</a></li>
-                        <li class="nav-item mx-3"><a href="#">Favoris</a></li>
-                        <li class="nav-item mx-3 active"><a href="cart.html">Panier</a></li>
-                        <li class="nav-item mx-3"><a href="#">Recherche</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-warning ">
+            <a href="../index.html" class="navbar-brand  text-dark">Orifurniture</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav mx-3">
+                    <li class="nav-item mx-3"><a href="#">Produits</a></li>
+                    <li class="nav-item mx-3"><a href="#">Favoris</a></li>
+                    <li class="nav-item mx-3"><a href="#">Se connecter</a></li>
+                    <li class="nav-item mx-3 active"><a href="cart.html">Panier</a></li>
+                    <li class="nav-item mx-3"><a href="#">Recherche</a></li>
+                    <li class="nav-item mx-3"><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class=" font-weight-bold text-dark">Félicitations votre commande a été envoyé</h1>
-        <h2>Vous allez bientôt recevoir votre commande Orifurnitures !</h2>
+        <div class="container">
+            <h1 class=" font-weight-bold text-dark">Félicitations votre commande a été envoyé</h1>
+            <h2>Vous allez bientôt recevoir votre commande Orifurnitures !</h2>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <h2>Voici un résumé de votre commande</h2>
+            
             <div class="col-12 col-md-7 col-lg-8">
+                <h2>Voici un résumé de votre commande</h2>
                 <p class="card-text">Numéro de commande</p>
                 <div class="card borderPlus bg-secondary text-warning my-2">
-                    <div class="card-body">
-                        <p class="card-text">Article(s) de votre panier :</p>
-                        <ul>   
-                            <li class="list-inline-item">Nom du produit</li>
-                            <li class="list-inline-item">Identifiant produit</li>
-                            <li class="list-inline-item" id="productPrice">Prix</li>
-                            <li class="list-inline-item">Quantité</li>
-                        </ul>
-                    </div>
-                    <div class="card-body" id="listCart">
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Total de la commande :</p>
-                        <button type="button" class="btn btn-danger cleanBtn"><small>Vider le panier</small></button>
-                    </div>
+                    <div class="card-body" id="listCart"></div>
                 </div>
             </div>
             <div class="col-12 col-md-5 col-lg-4">
                 <h2>Cette commande sera envoyé à l'adresse suivante :</h2>
                 <div class="card borderPlus bg-secondary text-warning my-2">
-                    <div class="card-body" id="orderDescription">
+                    <div class="card-body" id="orderCompleted">
                         <p class="card-text">Données du formulaire</p>
                         <p class="card-text">Nom prénom</p>
                         <p class="card-text">Adresse</p>
@@ -69,9 +56,7 @@
         </div>
     </div>
     <p class="card-text text-center">Vous devriez recevoir un email de confirmation de votre commande</p>
-	  <footer class="container bg-light text-warning">
-		<div class="row">
-		  <div class="col">
+	<footer class=" bg-light text-warning">
 			<ul class="list-inline text-center ">
 				<li class="list-group-item">Orifurniture by Orinoco</li>
 				<li class="list-inline-item"><a href="#">A propos</a></li>
@@ -83,9 +68,7 @@
 			   	<li class="list-inline-item"><a href="#">Retours/échanges</a></li>
 			   	<li class="list-inline-item"><a href="#">Garantie</a></li>
 			</ul>
-		  </div>
-		</div>
-	  </footer>
+	</footer>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 

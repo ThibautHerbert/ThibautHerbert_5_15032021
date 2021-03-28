@@ -4,136 +4,135 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Orifurniture - panier de commandes</title>
+	<link rel="shortcut icon" type="image/png" href="../image/orinoco.png">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<div class="container fixed-top">
-	<header class="row">
-		<nav class="col navbar navbar-expand-md navbar-dark bg-warning ">
-			<a href="../index.html" class="navbar-brand  text-dark">Orifurniture</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div id="navbarContent" class="collapse navbar-collapse">
-				<ul class="navbar-nav mx-3">
-					<li class="nav-item mx-3"><a href="#">Se connecter</a></li>
-					<li class="nav-item mx-3"><a href="#">Contact</a></li>
-					<li class="nav-item mx-3"><a href="#">Favoris</a></li>
-					<li class="nav-item mx-3 active"><a href="cart.html">Panier</a></li>
-					<li class="nav-item mx-3"><a href="#">Recherche</a></li>
-				</ul>
-			</div>
-		</nav>
-	</header>
-</div>
-<div class="jumbotron jumbotron-fluid">
-   <div class="container">
-	<h1 class=" font-weight-bold text-dark">Prêt à commander nos meubles en chêne véritable Orifurnitures !</h1>
+	<div class="container">
+		<header class="fixed-top">
+			<nav class="navbar navbar-expand-md navbar-dark bg-warning">
+				<a href="../index.html" class="navbar-brand  text-dark">Orifurniture</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div id="navbarContent" class="collapse navbar-collapse">
+					<ul class="navbar-nav mx-3">
+						<li class="nav-item mx-3"><a href="#">Produits</a></li>
+						<li class="nav-item mx-3"><a href="#">Favoris</a></li>
+						<li class="nav-item mx-3"><a href="#">Se connecter</a></li>
+						<li class="nav-item mx-3 active"><a href="cart.html">Panier</a></li>
+						<li class="nav-item mx-3"><a href="#">Recherche</a></li>
+						<li class="nav-item mx-3"><a href="#">Contact</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
 	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-12 col-md-7 col-lg-8">
-			<div class="card borderPlus bg-secondary text-warning my-2">
-				<div class="card-body">
-					<p class="card-text">Article(s) de votre panier :</p>
-                    <ul>   
-                        <li class="list-inline-item">Nom du produit</li>
-                        <li class="list-inline-item">Identifiant produit</li>
-                        <li class="list-inline-item" id="productPrice">Prix</li>
-                        <li class="list-inline-item">Quantité</li>
-                    </ul>
-				</div>
-				<div class="card-body" id="listCart">
-				</div>
-				<div class="card-body">
-					<p class="card-text">Total de la commande :</p>
-					<button type="button" class="btn btn-danger cleanBtn"><small>Vider le panier</small></button>
-				</div>
-			</div>
-		</div>
-        <div class="col-12 col-md-5 col-lg-4">
-			<div class="card borderPlus bg-secondary text-warning my-2">
-				<div class="card-body" id="orderDescription">
-                    <p class="card-text">Connectez-vous</p>
-					<p class="card-text">Identifiant client</p>
-                    <p class="card-text">Moyens de paiement</p>
-					<a href="#form" class="btn btn-info" id="order">Commander</a>
-				</div>
-			</div>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class=" font-weight-bold text-dark">Prêt à commander nos meubles en chêne véritable Orifurnitures !</h1>
 		</div>
 	</div>
-</div>
-<!--FORMULAIRE DE COMMANDE-->
-<section class="row my-5" id="block-form">
-	<div class="col">
-			<h2 class="mx-3 text-dark" id="form">Pour finaliser la commande, merci de remplir vos coordonnées :</h2>
-			<form class="mx-5">
-				<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="firstNameInput">Prénom</label>
-						<input type="text" class="form-control" id="firstNameInput" aria-describedby="firstNameHelp" placeholder="Sophie">
-						<small id="firstNameHelp" class="form-text text-muted">Indiquez votre prénom.</small>
-					</div>
-					<div class="form-group col-md-6">
-						<label for="lastNameInput">Nom</label>
-						<input type="text" class="form-control" id="lastNameInput" aria-describedby="lastNameHelp" placeholder="Durand">
-						<small id="lastNameHelp" class="form-text text-muted">Indiquez votre nom de famille.</small>
-					</div>
-				</div>
-				  <div class="form-group">
-					<label for="addressInput">Adresse</label>
-					<input type="text" class="form-control" id="addressInput" aria-describedby="addressHelp" placeholder="10 rue de la Paix">
-					<small id="addressHelp" class="form-text text-muted">Indiquez votre adresse postale avec le numéro de rue.</small>
-				  </div>
-				<div class="form-row">
-					<div class="form-group col-md-2">
-						<label for="zipCodeInput">CP</label>
-						<input type="text" class="form-control" id="zipCodeInput" aria-describedby="cpHelp" placeholder="44000">
-						<small id="zipCodeHelp" class="form-text text-muted">Indiquez votre code postal.</small>
-					</div>
-					<div class="form-group col-md-5">
-						<label for="cityInput">Ville</label>
-						<input type="text" class="form-control" id="cityInput" aria-describedby="cityHelp" placeholder="Nantes">
-						<small id="cityHelp" class="form-text text-muted">Indiquez votre ville.</small>
-					</div>
-					<div class="form-group col-md-5">
-						<label for="countryInput">Pays</label>
-						<input type="text" class="form-control" id="countryInput" aria-describedby="countryHelp" placeholder="France">
-						<small id="countryHelp" class="form-text text-muted">Indiquez votre pays.</small>
-					</div>
-				</div>
-				<div class="form-group">
-						<label for="emailInput">Adresse Email</label>
-						<input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="sophiedurand@protonmail.com">
-						<small id="emailHelp" class="form-text text-muted">Indiquez votre adresse courriel.</small>
-				</div>
-				<div class="form-group form-check">
-				  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-				  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-				</div>
-				<a href="#" class="btn btn-info" id="orderedConfirm">Confirmer votre commande</a>
-			</form>
-	</div>
-</section>
-<!-- fin du formulaire-->
-	  <footer class="container bg-light text-warning">
+	<div class="container">
 		<div class="row">
-		  <div class="col">
-			<ul class="list-inline text-center ">
-				<li class="list-group-item">Orifurniture by Orinoco</li>
-				<li class="list-inline-item"><a href="#">A propos</a></li>
-			   	<li class="list-inline-item"><a href="#">Savoir-faire</a></li>
-			   	<li class="list-inline-item"><a href="#">Nous contacter</a></li>
-			</ul>
-			<ul class="list-inline text-center ">
-			   	<li class="list-inline-item"><a href="#">Trouver un magasin</a></li>
-			   	<li class="list-inline-item"><a href="#">Retours/échanges</a></li>
-			   	<li class="list-inline-item"><a href="#">Garantie</a></li>
-			</ul>
-		  </div>
+			<div class="col-12 col-md-7 col-lg-8">
+				<div class="card borderPlus bg-secondary text-warning my-2">
+					<div class="card-body">
+						<p class="card-text">Article(s) de votre panier :</p>
+						<ul>   
+							<li class="list-inline-item">Nom du produit</li>
+							<li class="list-inline-item" id="productId">Identifiant produit</li>
+							<li class="list-inline-item">Prix</li>
+							<li class="list-inline-item">Quantité</li>
+						</ul>
+					</div>
+					<div class="card-body" id="listCart">
+					</div>
+					<div class="card-body">
+						<p class="card-text">Total de la commande :</p>
+						<button type="button" class="btn btn-danger cleanBtn"><small>Vider le panier</small></button>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-5 col-lg-4">
+				<div class="card borderPlus bg-secondary text-warning my-2">
+					<div class="card-body" id="orderDescription">
+						<p class="card-text">Connectez-vous</p>
+						<p class="card-text">Identifiant client</p>
+						<p class="card-text">Moyens de paiement</p>
+						<a href="#form" class="btn btn-info" id="order">Commander</a>
+					</div>
+				</div>
+			</div>
 		</div>
-	  </footer>
+	</div>
+<!--FORMULAIRE DE COMMANDE-->
+	<section class="row my-5" id="block-form">
+		<div class="col">
+				<h2 class="mx-3 text-dark" id="form">Pour finaliser la commande, merci de remplir vos coordonnées :</h2>
+				<form class="mx-5">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="firstNameInput">Prénom</label>
+							<input type="text" class="form-control" id="firstNameInput" aria-describedby="firstNameHelp" placeholder="Sophie">
+							<small id="firstNameHelp" class="form-text text-muted">Indiquez votre prénom.</small>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="lastNameInput">Nom</label>
+							<input type="text" class="form-control" id="lastNameInput" aria-describedby="lastNameHelp" placeholder="Durand">
+							<small id="lastNameHelp" class="form-text text-muted">Indiquez votre nom de famille.</small>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="addressInput">Adresse</label>
+						<input type="text" class="form-control" id="addressInput" aria-describedby="addressHelp" placeholder="10 rue de la Paix">
+						<small id="addressHelp" class="form-text text-muted">Indiquez votre adresse postale avec le numéro de rue.</small>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-2">
+							<label for="zipCodeInput">CP</label>
+							<input type="text" class="form-control" id="zipCodeInput" aria-describedby="cpHelp" placeholder="44000">
+							<small id="zipCodeHelp" class="form-text text-muted">Indiquez votre code postal.</small>
+						</div>
+						<div class="form-group col-md-5">
+							<label for="cityInput">Ville</label>
+							<input type="text" class="form-control" id="cityInput" aria-describedby="cityHelp" placeholder="Nantes">
+							<small id="cityHelp" class="form-text text-muted">Indiquez votre ville.</small>
+						</div>
+						<div class="form-group col-md-5">
+							<label for="countryInput">Pays</label>
+							<input type="text" class="form-control" id="countryInput" aria-describedby="countryHelp" placeholder="France">
+							<small id="countryHelp" class="form-text text-muted">Indiquez votre pays.</small>
+						</div>
+					</div>
+					<div class="form-group">
+							<label for="emailInput">Adresse Email</label>
+							<input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="sophiedurand@protonmail.com">
+							<small id="emailHelp" class="form-text text-muted">Indiquez votre adresse courriel.</small>
+					</div>
+					<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Check me out</label>
+					</div>
+					<a href="#" class="btn btn-info" id="orderedConfirm">Confirmer votre commande</a>
+				</form>
+		</div>
+	</section>
+<!-- fin du formulaire-->
+	  
+	<footer class="bg-light text-warning">
+		<ul class="list-inline text-center ">
+			<li class="list-group-item">Orifurniture by Orinoco</li>
+			<li class="list-inline-item"><a href="#">A propos</a></li>
+		   	<li class="list-inline-item"><a href="#">Savoir-faire</a></li>
+		   	<li class="list-inline-item"><a href="#">Nous contacter</a></li>
+		</ul>
+		<ul class="list-inline text-center ">
+		   	<li class="list-inline-item"><a href="#">Trouver un magasin</a></li>
+		   	<li class="list-inline-item"><a href="#">Retours/échanges</a></li>
+		   	<li class="list-inline-item"><a href="#">Garantie</a></li>
+		</ul>
+ 	</footer>
 
 	
 

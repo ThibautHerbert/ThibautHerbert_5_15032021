@@ -77,8 +77,8 @@ console.log(quantity);
 
                                 // TEMPORAIRE affichage des id
 // récupération des données du localStorage et affichage des données 
-let productPrice = document.querySelector('#productPrice');
-productPrice.textContent = (localStorage.getItem("listCart"));
+let productId = document.querySelector('#productId');
+productId.textContent = (localStorage.getItem("listCart"));
 //productPrice.textContent = JSON.parse(DataStorage);
 
 
