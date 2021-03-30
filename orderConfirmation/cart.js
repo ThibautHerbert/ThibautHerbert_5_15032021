@@ -3,10 +3,10 @@ const fetchFurniture = async() =>{
 };
 
 //début de showCart
-const showCart = async(data) => {
+const showCart = async(products) => {
 	let furnitures = await fetchFurniture();
-    data.map(id =>  {
-        console.log(furnitures);
+    products.map(id =>  {
+        //console.log(furnitures);
         let product = furnitures.filter(item => item._id == id)[0];
         let cart = `
         <ul>   
@@ -42,10 +42,10 @@ const showCart = async(data) => {
 
 // récupère le localStorage listCart, 
 let dataStorage = localStorage.getItem("listCart");
-let data = JSON.parse(dataStorage); //le transforme pour être lisible MAIS IL Y A SUREMENT UN PROBLEME
+let products = JSON.parse(dataStorage); //le transforme pour être lisible MAIS IL Y A SUREMENT UN PROBLEME
 // si le localStorage contient des id/produits alors le panier s'affiche sinon message d'alerte
-if (data) {
-    showCart(data);
+if (products) {
+    showCart(products);
 } else {
     alert('Aucun produit dans le panier');
 }
@@ -63,7 +63,7 @@ if (data) {
 //for (let i = 0 ; i < data.value.length ; i++) { cannot read property length
 
 //let showQuantity = document.querySelector('.qty');
-let quantity = data.length; // ne différencie pas les id entre elles, compte le nbr total d'articles
+let quantity = products.length; // ne différencie pas les id entre elles, compte le nbr total d'articles
 /*if (data !== undefined){
     alert("combien y'a t'il de données: " + data.length);
     for (let i = data.value ; i <= data.length ; i+= data.length) {

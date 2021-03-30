@@ -64,8 +64,8 @@ else
 }
 
 // au clic sur le bouton confirmer votre commande :
-let orderedConfirm= document.querySelector('#orderedConfirm');
-orderedConfirm.addEventListener('click', () => {
+let confirmOrder= document.querySelector('#confirmOrder');
+confirmOrder.addEventListener('click', () => {
     firstNameChecker(firstNameInput);
     lastNameChecker(lastNameInput);
     emailChecker(emailInput);
@@ -79,12 +79,55 @@ orderedConfirm.addEventListener('click', () => {
         "lastName": lastNameInput.value,
         "address": addressInput.value,
         "city": cityInput.value,
-        "email": emailInput.value,
-        //"country":countryInput.value,
-        //"zipCode": zipCodeInput.value
+        "email": emailInput.value
+        
     };
+    var contact2 = {
+        "country": countryInput.value,
+        "zipCode": zipCodeInput.value
+    }
     localStorage.setItem("formStorage", JSON.stringify(contact));
-})
+    localStorage.setItem("formStorage2", JSON.stringify(contact2));
+
+    let dataTogether = {contact, products};
+    let dataToSend = JSON.stringify(dataTogether);
+    console.log(dataStorage);
+    //console.log(products);
+    console.log(dataTogether);
+    console.log(dataToSend);
+    // envoi des données formulaires au serveur
+    var sendToServer = new XMLHttpRequest();
+    sendToServer.open("POST", "http://localhost:3000/api/furniture/order");
+    if(sendToServer.open){
+
+        alert('open ça a marché');}/*
+        sendToServer.send(JSON.stringify(dataTogether));*/
+        console.log(sendToServer.send(dataToSend));/*
+
+        if(sendToServer.send(dataTogether)) {
+        alert('send ça a marché');
+        } else {
+        alert("send pas marché");
+        };
+    }else{
+        alert("open pas marché");
+    };
+    sendToServer.setRequestHeader("Content-Type", "application/json");
+    if(sendToServer.setRequestHeader){
+        alert('header ça a marché');
+    }else{
+        alert("header pas marché");
+    };*/
+    
+    sendToServer.onreadystatechange = function () {
+        if(this.readystate == XMLHttpRequest.DONE && this.status == 201) {
+            alert('readystate alors ça marche?'); 
+        }else {
+        alert("readystate ça marche pas");
+        }
+    }
+    
+}); // fin du addEventListener sur orderedConfirm
 
 
 /*emailInput.addEventListener('input', () => {
@@ -135,3 +178,5 @@ localStorage.setItem(‘orderIdStorage’, JSON.stringify());
 window.location.href; //=ordered.html // href désactivé sur le html ne mène à rien
 } 
 */
+// récupération des id ajoutées au panier via le localStorage dataStorage
+//}); //rajout
