@@ -17,7 +17,7 @@ const showFurniture = async(id) => {
     descriptionProduct.innerHTML = `
 				<h2 class="card-title text-warning">${furniture.name}</h5>
                 <p class="card-text">N° du produit : ${furniture._id}</p>
-				<p class="">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(furniture.price)}</p>
+				<p class="">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(furniture.price/100)}</p>
                 <label for=quantity>Quantité :</label>
                 <select name="quantity" class="quantityCount">
                     <option value="">0</option>

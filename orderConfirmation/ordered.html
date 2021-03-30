@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-warning ">
-            <a href="../index.html" class="navbar-brand  text-dark">Orifurniture</a>
+            <a href="../index.html" class="navbar-brand  text-success">Orifurniture</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,7 +28,7 @@
     </header>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class=" font-weight-bold text-dark">Félicitations votre commande a été envoyé</h1>
+            <h1 class=" font-weight-bold text-dark">Félicitations, votre commande a été envoyé !</h1>
             <h2>Vous allez bientôt recevoir votre commande Orifurnitures !</h2>
         </div>
     </div>
@@ -37,19 +37,18 @@
             
             <div class="col-12 col-md-7 col-lg-8">
                 <h2>Voici un résumé de votre commande</h2>
-                <p class="card-text">Numéro de commande</p>
-                <div class="card borderPlus bg-secondary text-warning my-2">
+                <p class="card-text showServerResponse showNumOrdered">Numéro de commande :</p>
+                <div class="card borderPlus bg-secondary text-dark my-2">
                     <div class="card-body" id="listCart"></div>
                 </div>
             </div>
             <div class="col-12 col-md-5 col-lg-4">
                 <h2>Cette commande sera envoyé à l'adresse suivante :</h2>
-                <div class="card borderPlus bg-secondary text-warning my-2">
-                    <div class="card-body" id="orderCompleted">
-                        <p class="card-text">Données du formulaire</p>
-                        <p class="card-text">Nom prénom</p>
-                        <p class="card-text">Adresse</p>
-                        <p class="card-text">Moyens de paiement</p>
+                <div class="card borderPlus bg-secondary text-dark my-2">
+                    <div class="card-body">
+                        <p class="card-text showNames">Nom prénom</p>
+                        <p class="card-text showAddress">Adresse</p>
+                        <p class="card-text showZipCity">Complément adresse</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +64,7 @@
 			</ul>
 			<ul class="list-inline text-center ">
 			   	<li class="list-inline-item"><a href="#">Trouver un magasin</a></li>
-			   	<li class="list-inline-item"><a href="#">Retours/échanges</a></li>
+			   	<li class="list-inline-item"><a href="#">Retours/Échanges</a></li>
 			   	<li class="list-inline-item"><a href="#">Garantie</a></li>
 			</ul>
 	</footer>

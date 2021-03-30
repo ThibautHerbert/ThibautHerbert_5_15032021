@@ -1,11 +1,23 @@
-const fetchFurniture = async(data) =>{
-	return await fetch(`http://localhost:3000/api/furniture/${data}`).then(res => res.json());
+const fetchFurniture = async() =>{
+	return await fetch(`http://localhost:3000/api/furniture`).then(res => res.json());
 };
 
 //début de showCart
 const showCart = async(data) => {
-	let furniture = await fetchFurniture(data);
-	let order = `
+	let furnitures = await fetchFurniture();
+    data.map(id =>  {
+        console.log(furnitures);
+        let product = furnitures.filter(item => item._id == id)[0];
+        let cart = `
+        <ul>   
+        <li class="list-inline-item">${product.name} |</li>
+        <li class="list-inline-item">${product._id} |</li>
+        <li class="list-inline-item">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(product.price/100)} |</li>
+        <li class="list-inline-item qty">${quantity} |</li>
+        </ul>`
+        listCart.insertAdjacentHTML("beforeend", cart);
+    })
+	/*let order = `
 			<div class="card-body">
 				<p class="card-text">Article(s) de votre panier :</p>
                 <ul>   
@@ -21,8 +33,8 @@ const showCart = async(data) => {
                     <li class="list-inline-item qty">${quantity} |</li>
                 </ul>
 				<p class="card-text">Total de la commande : ${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(furniture.price)}</p>
-			</div>`
-            listCart.insertAdjacentHTML("beforeend", order);
+			</div>`*/
+            //listCart.insertAdjacentHTML("beforeend", order);
     
             // calcul du montant total de la commande
      
@@ -73,13 +85,12 @@ let quantity = data.length; // ne différencie pas les id entre elles, compte le
 }*/
 console.log(quantity);
 
+// total de la commande :
+const displayTotal = () => {
+let showtotal = document.querySelector('#total');
+let total = 0;
 
-
-                                // TEMPORAIRE affichage des id
-// récupération des données du localStorage et affichage des données 
-let productId = document.querySelector('#productId');
-productId.textContent = (localStorage.getItem("listCart"));
-//productPrice.textContent = JSON.parse(DataStorage);
+}
 
 
 // Au clic du bouton le panier se vide
@@ -91,6 +102,7 @@ cleanBtn.addEventListener('click', () => {
 function cleanCart () {
     alert('Le panier a été vidé');
     localStorage.removeItem('listCart');
+    listCart.style.display = 'none';
     //rajouter une fonction pour enlever les id de l'écran avant rafraichissement de la page panier
 }
 //                              découvre le formulaire au clic du btn commander

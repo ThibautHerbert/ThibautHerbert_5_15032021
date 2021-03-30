@@ -1,18 +1,24 @@
-var nameInputs = document.querySelector('#firstNameInput');
-let lastNameInput = document.querySelector('#lastNameInput');
+var firstNameInput = document.querySelector('#firstNameInput');
 // test 1 regex sur le prénom dans une variable (nameInputs.match is not a function s'il n'y a pas value)
 /*var nameChecker = /^([a-zA-Z- ]+)$/;
 if(nameInputs.value.match(nameChecker))
     nameInputs.style.background = 'blue';
 else
     nameInputs.style.background = 'red';*/
-function nameChecker(nameInputs) { 
-    if(nameInputs.value.match(/^([a-zA-Z- àâäéèêëïîôöùûüç]+)$/)) //regex qui prend que les lettres min et max, les tirets et les espaces
+function firstNameChecker(firstNameInput) { 
+    if(firstNameInput.value.match(/^([a-zA-Z- àâäéèêëïîôöùûüç]+)$/)) //regex qui prend que les lettres min et max, les tirets et les espaces
         alert('prénom vrai');
     else
-        nameInputs.style.border = 'red solid 2px';
+        firstNameInput.style.border = 'red solid 2px';
 }
 
+let lastNameInput = document.querySelector('#lastNameInput');
+function lastNameChecker(lastNameInput) { 
+    if(lastNameInput.value.match(/^([a-zA-Z- àâäéèêëïîôöùûüç]+)$/)) //regex qui prend que les lettres min et max, les tirets et les espaces
+        alert('nom vrai');
+    else
+        lastNameInput.style.border = 'red solid 2px';
+}
 
 let emailInput = document.querySelector('#emailInput');
 function emailChecker(emailInput){
@@ -60,12 +66,24 @@ else
 // au clic sur le bouton confirmer votre commande :
 let orderedConfirm= document.querySelector('#orderedConfirm');
 orderedConfirm.addEventListener('click', () => {
-    nameChecker(nameInputs);
+    firstNameChecker(firstNameInput);
+    lastNameChecker(lastNameInput);
     emailChecker(emailInput);
     zipCodeChecker(zipCodeInput);
     cityChecker(cityInput);
     countryChecker(countryInput);
     addressChecker(addressInput);
+
+    var contact = {
+        "firstName": firstNameInput.value,
+        "lastName": lastNameInput.value,
+        "address": addressInput.value,
+        "city": cityInput.value,
+        "email": emailInput.value,
+        //"country":countryInput.value,
+        //"zipCode": zipCodeInput.value
+    };
+    localStorage.setItem("formStorage", JSON.stringify(contact));
 })
 
 
@@ -83,24 +101,36 @@ var message = 'Bonjour les gens !';
     alert('Tout seul...');
 */
 
-//class Constructor pour envoyer les données au serveur
-class product_id { // ou un nom avec majuscule ?
-    constructor (firstName, lastName, address, city, email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.email = email;
+//class Constructor pour envoyer les données au serveur ou la variable product_id suffit?
+/*class product_id { // ou un nom avec majuscule ?
+    constructor (firstName, lastName, address, city, email, country, zipCode) {
+        this.firstNameInput = firstName;
+        this.lastNameInput = lastName;
+        this.addressInput = address;
+        this.cityInput = city;
+        this.emailInput = email;
+        this.countryInput = country;
+        this.zipCodeInput = zipCode;
     }
-}
-//this.firstNameInput à la place de this.firstName ? et ainsi de suite ?
+}*/
+
+//this.firstNameInput à la place de this.firstName ? et ainsi de suite ? ou firstName.value ? sans constructor ?
+
+
+// préparation requête POST à mettre dans click event de orderedConfirm
+/*
+var sendToServer = new XMLHttpRequest();
+sendToServer.open("POST", "http://localhost:3000/api/furniture/order");
+sendToServer.setRequestHeader("Content-Type", "application/json");
+sendToServer.send(JSON.stringify (product_id/*nom de la variable qui contient les 2 variables de numéro de commande et de product_id*//*));
+*/
+/*
+if(firstNameInput || lastNameInput || email || zipCodeInput || cityInput || countryInput || addressInput || = style.border= ‘red solid 2px’) alors : {
+alert('erreur dans le formulaire, resaissez correctement vos informations');
+} else {*/
+
 
 /*
-if(nameInputs || email || zipCodeInput || cityInput || countryInput || addressInput || = style.border= ‘red solid 2px’) alors : {
-alert('erreur dans le formulaire, resaissez correctement vos informations');
-} else {
-
-localStorage.setItem(‘formStorage’, JSON.stringify());
 localStorage.setItem(‘orderIdStorage’, JSON.stringify());
 window.location.href; //=ordered.html // href désactivé sur le html ne mène à rien
 } 
