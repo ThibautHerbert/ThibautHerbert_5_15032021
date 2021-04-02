@@ -8,13 +8,17 @@ const showCart = async(products) => {
     products.map(id =>  {
         //console.log(furnitures);
         let product = furnitures.filter(item => item._id == id)[0];
-        let cart = `
-        <ul>   
-        <li class="list-inline-item">${product.name} |</li>
-        <li class="list-inline-item">${product._id} |</li>
-        <li class="list-inline-item getPrices">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(product.price/100)} |</li>
-        <li class="list-inline-item qty">${quantity} |</li>
-        </ul>`
+        let cart = 
+        
+        `
+		    <tr>
+				<th scope="row">1</th>
+                    <td>${product._id}</td>
+					<td>${product.name}</td>
+					<td class="getPrices">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(product.price/100)}</td>
+					<td>${quantity}</td>
+			</tr>
+		`
         listCart.insertAdjacentHTML("beforeend", cart);
         
         /* 01/04 essai pour récupérer les prix
@@ -25,11 +29,11 @@ const showCart = async(products) => {
             
             //localStorage.setItem("listCart", JSON.stringify(idStorage)); //création du localStorage listCart et conversion des données en string
         //}
-        const displayQuantityProducts = () => {
+        /*const displayQuantityProducts = () => {
             let showQuantityProducts = document.querySelector('#quantityProducts');
             showQuantityProducts.innerHTML += " " + quantity + " article(s)";
         }
-        displayQuantityProducts();
+        displayQuantityProducts();*/
         const displayTotal = () => {
             let showTotal = document.querySelector('#total');
             //let total = 0;
