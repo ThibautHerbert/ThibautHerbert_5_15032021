@@ -10,22 +10,41 @@
 <body>
 	<div class="container">
 		<header class="fixed-top">
-			<nav class="navbar navbar-expand-md navbar-dark bg-warning">
-				<a href="../index.html" class="navbar-brand  text-success">Orifurniture</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-					<span class="navbar-toggler-icon"></span>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+				<a class="navbar-brand text-success" href="../index.html">Orifurniture</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
 				</button>
-				<div id="navbarContent" class="collapse navbar-collapse">
-					<ul class="navbar-nav mx-3">
-						<li class="nav-item mx-3"><a href="#">Produits</a></li>
-						<li class="nav-item mx-3"><a href="#">Favoris</a></li>
-						<li class="nav-item mx-3"><a href="#">Se connecter</a></li>
-						<li class="nav-item mx-3 active"><a href="cart.html">Panier</a></li>
-						<li class="nav-item mx-3"><a href="#">Recherche</a></li>
-						<li class="nav-item mx-3"><a href="#">Contact</a></li>
-					</ul>
+			  
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				  <ul class="navbar-nav mr-auto">
+					<li class="nav-item ">
+						<a class="nav-link text-primary" href="../index.html">Accueil</a>
+					  </li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Produits</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="../product/product.html?id=5be9cc611c9d440000c1421e">Cross Table</a>
+							<a class="dropdown-item" href="../product/product.html?id=5beaadda1c9d440000a57d98">Coffee Table</a>
+							<a class="dropdown-item" href="../product/product.html?id=5beaae361c9d440000a57d99">Dining Table</a>
+							<a class="dropdown-item" href="../product/product.html?id=5beaaf2e1c9d440000a57d9a">Bench</a>
+							<a class="dropdown-item" href="../product/product.html?id=5beab2061c9d440000a57d9b">Vintage Chair</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-primary" href="#">Se connecter</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link active" href="cart.html">Panier</a>
+					  </li>
+				  </ul>
+				  <form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+				  </form>
 				</div>
-			</nav>
+			  </nav>
 		</header>
 	</div>
 	<div class="jumbotron jumbotron-fluid">
@@ -49,6 +68,7 @@
 					<div class="card-body" id="listCart">
 					</div>
 					<div class="card-body">
+						<p class="card-text" id="quantityProducts">Vous avez dans votre panier  </p>
 						<p class="card-text" id="total">Total de la commande :</p>
 						<button type="button" class="btn btn-danger cleanBtn"><small>Vider le panier</small></button>
 					</div>
@@ -58,8 +78,7 @@
 				<div class="card borderPlus bg-secondary text-warning my-2">
 					<div class="card-body" id="orderDescription">
 						<p class="card-text">Connectez-vous</p>
-						<p class="card-text">Identifiant client</p>
-						<p class="card-text">Moyens de paiement</p>
+						<p class="card-text">Moyens de paiement :</p>
 						<a href="#form" class="btn btn-info" id="order">Commander</a>
 					</div>
 				</div>

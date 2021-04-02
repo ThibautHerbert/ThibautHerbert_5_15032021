@@ -95,14 +95,48 @@ confirmOrder.addEventListener('click', () => {
     //console.log(products);
     console.log(dataTogether);
     console.log(dataToSend);
-    // envoi des données formulaires au serveur
-    var sendToServer = new XMLHttpRequest();
-    sendToServer.open("POST", "http://localhost:3000/api/furniture/order");
-    if(sendToServer.open){
 
-        alert('open ça a marché');}/*
+    // envoi des données formulaire et product via fetch post
+
+    fetch('http://localhost:3000/api/furniture/order', {
+	method : "POST",
+	body: dataToSend,
+	headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+    .then(response => response.json())
+    .then(json => localStorage.setItem("responseServer", JSON.stringify(json)))
+    .catch(err => console.log("then err " +  err));
+    // fin de la requête POST
+
+    // redirection vers la page confirmation de commande :
+    window.location.href = "ordered.html";
+    /*if(localStorage.setItem("responseServer", JSON.stringify(json))){
+        window.location.href = "ordered.html";
+    };*/
+    
+
+
+    // envoi des données formulaires au serveur xml request
+    /*
+    var sendToServer = new XMLHttpRequest();
+    sendToServer.open("POST", 'http://localhost:3000/api/furniture/order' , true);
+    sendToServer.setRequestHeader("Content-Type", "application/json");
+    if(sendToServer.open) {
+
+        alert('open ça a marché');
+        console.log(sendToServer.send(dataToSend));
+    }
+    sendToServer.onreadystatechange = function () {
+        if(this.readystate == XMLHttpRequest.DONE && this.status == 200) {
+            alert('readystate alors ça marche?'); 
+        }else {
+        alert("readystate ça marche pas");
+        }
+    }
+     fin de la requete post xml*/
+    /*
         sendToServer.send(JSON.stringify(dataTogether));*/
-        console.log(sendToServer.send(dataToSend));/*
+        /*
 
         if(sendToServer.send(dataTogether)) {
         alert('send ça a marché');
@@ -119,13 +153,7 @@ confirmOrder.addEventListener('click', () => {
         alert("header pas marché");
     };*/
     
-    sendToServer.onreadystatechange = function () {
-        if(this.readystate == XMLHttpRequest.DONE && this.status == 201) {
-            alert('readystate alors ça marche?'); 
-        }else {
-        alert("readystate ça marche pas");
-        }
-    }
+    
     
 }); // fin du addEventListener sur orderedConfirm
 

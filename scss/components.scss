@@ -1,13 +1,25 @@
-.borderPlus{
-    border: solid 10px $woodDarker;
+// toutes les pages
+// navbar
+.dropdown:hover>.dropdown-menu{
+    display: block;
 }
-.borderFooter{
-    border: solid 5px $white;
-    background: $dark;
-}
+// rectificatif position responsive du jumbotron
 .jumbotron {
     transform:translateY(20px);
 }
+// style bordure sur les cards
+.borderPlus{
+    border: solid 10px $woodDarker;
+}
+// style bordure dans le footer
+/* pas utilisé
+.borderFooter{
+    border: solid 5px $white;
+    background: $dark;
+}*/
+
+// apparition formulaire - page panier uniquement
 #block-form{
     display:none;
 }
+
