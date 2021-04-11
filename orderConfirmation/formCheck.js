@@ -99,17 +99,22 @@ confirmOrder.addEventListener('click', () => {
     // envoi des données formulaire et product via fetch post
 
     fetch('http://localhost:3000/api/furniture/order', {
-	method : "POST",
-	body: dataToSend,
-	headers: {"Content-type": "application/json; charset=UTF-8"}
+        method : "POST",
+        body: dataToSend,
+        headers: {"Content-type": "application/json; charset=UTF-8"}
     })
-    .then(response => response.json())
-    .then(json => localStorage.setItem("responseServer", JSON.stringify(json)))
-    .catch(err => console.log("then err " +  err));
-    // fin de la requête POST
+    // écriture de promesses/promises en fonctions fléchées:
+        .then(response => response.json()) // reçoit la fonction si elle est remplie/fulfilled
+        //.json() returns a callback
+        //.then(json => console.log(json));
+        .then(json => localStorage.setItem("responseServer", JSON.stringify(json)))
+        .then(() => window.location.href = "ordered.html") // si la requête POST est fulfilled alors rediriger vers la page de confirmation de commande
+        .catch(err => console.log("promise err " +  err)); // reçoit la fonction si l'envoi est rejeté
+        // fin de la requête POST
 
     // redirection vers la page confirmation de commande :
-    window.location.href = "ordered.html";
+    //responseServer ne se créé pas si je met le lien direct vers ordered.html, est-ce que ça va trop vite ?
+    //window.location.href = "ordered.html";
     /*if(localStorage.setItem("responseServer", JSON.stringify(json))){
         window.location.href = "ordered.html";
     };*/
@@ -172,39 +177,10 @@ var message = 'Bonjour les gens !';
     alert('Tout seul...');
 */
 
-//class Constructor pour envoyer les données au serveur ou la variable product_id suffit?
-/*class product_id { // ou un nom avec majuscule ?
-    constructor (firstName, lastName, address, city, email, country, zipCode) {
-        this.firstNameInput = firstName;
-        this.lastNameInput = lastName;
-        this.addressInput = address;
-        this.cityInput = city;
-        this.emailInput = email;
-        this.countryInput = country;
-        this.zipCodeInput = zipCode;
-    }
-}*/
-
-//this.firstNameInput à la place de this.firstName ? et ainsi de suite ? ou firstName.value ? sans constructor ?
-
-
 // préparation requête POST à mettre dans click event de orderedConfirm
-/*
-var sendToServer = new XMLHttpRequest();
-sendToServer.open("POST", "http://localhost:3000/api/furniture/order");
-sendToServer.setRequestHeader("Content-Type", "application/json");
-sendToServer.send(JSON.stringify (product_id/*nom de la variable qui contient les 2 variables de numéro de commande et de product_id*//*));
-*/
+
 /*
 if(firstNameInput || lastNameInput || email || zipCodeInput || cityInput || countryInput || addressInput || = style.border= ‘red solid 2px’) alors : {
 alert('erreur dans le formulaire, resaissez correctement vos informations');
-} else {*/
-
-
-/*
-localStorage.setItem(‘orderIdStorage’, JSON.stringify());
-window.location.href; //=ordered.html // href désactivé sur le html ne mène à rien
-} 
-*/
-// récupération des id ajoutées au panier via le localStorage dataStorage
-//}); //rajout
+} else {
+    */

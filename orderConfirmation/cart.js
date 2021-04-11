@@ -1,279 +1,203 @@
+//appel de l'API via une fonction async await avec la méthode fetch
 const fetchFurniture = async() =>{
 	return await fetch(`http://localhost:3000/api/furniture`).then(res => res.json());
 };
+// déclarations de variables pour le panier:
+let calcTotalCart = 0;
+let quantityCount = 0;
+let numberRow = 1;
 
-//début de showCart
+// récupère le localStorage (listCart) qui contient les id des produits ajoutés au panier, 
+let dataStorage = localStorage.getItem("cart");
+let productsArray = JSON.parse(dataStorage); //converti les données pour être lisible 
+
+//console.log("type of products : " + typeof products);
+console.log("type of " + typeof dataStorage);
+
+// convertir products en array :
+//https://www.journaldunet.fr/web-tech/developpement/1441035-comment-convertir-un-objet-en-un-tableau-array-de-paires-cle-valeur-en-javascript/
+
+// créer une variable products qui sera utilisée pour l'envoi au serveur dans le fetch post qui doit contenir l'id uniquement et non la quantité
+//console.log("objet keys :" + Object.keys(products));
+//1ère méthode :
+//let keysId = Object.keys(products);
+//console.log("type of keysId : " + typeof keysId);
+// ou 2ème méthode de Object.keys :
+let products = Object.keys(productsArray).map(function(cle) {
+    return [cle];
+});
+console.log("contenu du nouveau products" + products);
+// fin de la variable products contenant l'id uniquement
+
+
+//console.log("nouvel array : " + array);
+//console.log("type of " + typeof array);
+
+//essai avec un array créé - même échec property map of undefined
+//let array2 = ["5beaadda1c9d440000a57d98","5beaaf2e1c9d440000a57d9a","5be9cc611c9d440000c1421e","5beaae361c9d440000a57d99"];
+//debugger
+//console.log("type of array2 : " + typeof array2);
+//console.log("deuxieme array : " + array2);
+// fin de la conversion echec ? type of object
+
+//tests simulation d'un array panier avec boucle for in 09 04
+console.log(dataStorage);
+
+// fonction qui permet d'afficher le contenu du panier
+//if (typeof array2 !== 'undefined') {
+const showCart = async() => {
+    let furnitures = await fetchFurniture();
+    console.log("ce sont les furnitures" + furnitures);
+        //debugger
+    for (let id in productsArray) { // id est la clé/key de l'array products
+            //console.log("ligne52 id :" + id);
+            //array.map(id =>  { retirer le .map sinon il dédouble le panier
+        let product = furnitures.filter(item => item._id == id)[0];
+        let cart = `
+                    <tr>
+                        <th scope="row position">${numberRow}</th>
+                            <td>${id}</td> 
+                            <td>${product.name}</td>
+                            <td class="getPrices">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(product.price/100)}</td>
+                            <td>${productsArray[id]}</td>
+                        </tr>
+                    `;
+                        // id représente la clé de la variable products donc l'identifiant
+                        // product.name provient de l'API
+                        // product.price provient de l'API
+                        // products[id] représente la value de la variable products donc la quantité du produit ajouté au panier
+        listCart.insertAdjacentHTML("beforeend", cart);
+
+                // affiche la quantité de produits au total présent dans le panier
+        const displayQuantityProducts = () => {
+            let showQuantityProducts = document.querySelector('#quantityProducts');
+            quantityCount += productsArray[id];
+            showQuantityProducts.innerHTML = "Vous avez dans votre panier " + quantityCount + " article(s)";
+        }
+        displayQuantityProducts();
+                
+                // affiche un numéro de ligne à chaque article ajouté au panier
+        const displayNumberRow = () => {
+            numberRow ++;
+        }
+        displayNumberRow();
+        
+        const displayTotal = () => {
+            let showTotal = document.querySelector('#total');
+            //let formatTotal = Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, {maximumSignificantDigits: 3}).format(product.price/100);
+            //calcTotalCart += formatTotal; le formatage des nombres empêche l'addition
+            calcTotalCart += product.price/100;
+            totalCart = calcTotalCart;
+            console.log(typeof (totalCart));
+            console.log(totalCart);
+            showTotal.textContent = "Total de la commande : " + Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, {maximumSignificantDigits: 3}).format(calcTotalCart) + " TTC";
+        }
+        displayTotal();
+            //}) //fin du map
+        //.catch(err => console.log(err));
+    } // fin de la boucle for in
+ }; //fin du nouveau showCart (affiche l'id et la quantité par le localStorage et le reste par l'API)
+showCart();
+//} fin de if typeof array2 is not undefined
+
+//test 3 avec boucle for in 09 04
+// la boucle permet d'afficher tous les ajouts d'identifiant avec leur quantité ajoutés au panier
+/*
+        for (let id in products) {
+            //console.log(`${id} : ${array[id]}`);
+            //console.log(`la clé ${id} `);
+            let cart = `
+                    <tr>
+                        <th scope="row position">${numberRow}</th>
+                            <td>${id}</td>
+                            <td>nom ?</td>
+                            <td class="getPrices"> prix?</td>
+                            <td>${products[id]}</td>
+                    </tr>
+                `;
+                listCart.insertAdjacentHTML("beforeend", cart);
+/*
+                const displayQuantityProducts = () => {
+                    let showQuantityProducts = document.querySelector('#quantityProducts');
+                    quantityCount += products[id];
+                    showQuantityProducts.innerHTML = "Vous avez dans votre panier " + quantityCount + " article(s)";
+                }
+                displayQuantityProducts();
+                const displayNumberRow = () => {
+                    numberRow ++;
+                }
+                displayNumberRow();
+ */
+ //       }
+  
+//début de showCart v1
+/*
 const showCart = async(products) => {
 	let furnitures = await fetchFurniture();
     products.map(id =>  {
-        //console.log(furnitures);
+        console.log("ce sont les furnitures" + furnitures);
         let product = furnitures.filter(item => item._id == id)[0];
         let cart = 
-        
         `
 		    <tr>
-				<th scope="row">1</th>
+				<th scope="row position">#</th>
                     <td>${product._id}</td>
 					<td>${product.name}</td>
 					<td class="getPrices">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(product.price/100)}</td>
-					<td>${quantity}</td>
+					<td>1</td>
 			</tr>
 		`
         listCart.insertAdjacentHTML("beforeend", cart);
         
-        /* 01/04 essai pour récupérer les prix
-        let getPrices = document.querySelector('.getPrices');
-        console.log("alors getPrices ? "+ getPrices.value);
-        */
-        //function addPrices(prices, total){ //push de l'identifiant id vers un tableau idStorage
-            
-            //localStorage.setItem("listCart", JSON.stringify(idStorage)); //création du localStorage listCart et conversion des données en string
-        //}
-        /*const displayQuantityProducts = () => {
+        const displayQuantityProducts = () => {
             let showQuantityProducts = document.querySelector('#quantityProducts');
-            showQuantityProducts.innerHTML += " " + quantity + " article(s)";
+            showQuantityProducts.innerHTML = "Vous avez dans votre panier " + quantityTotal + " article(s)";
         }
-        displayQuantityProducts();*/
+        displayQuantityProducts();
         const displayTotal = () => {
             let showTotal = document.querySelector('#total');
-            //let total = 0;
-            //let cart = localStorage.getItem("listCart") ? JSON.parse(localStorage.getItem("listCart")) : {} ;
-                //console.log(total);
-            
-            //console.log(typeof(product.price/100));
-            //let prices = [];
-            //let price = (product.price);
-            //prices.push(price/100);
-            //console.log(typeof price);
-            /*
-            if(prices.length === 0) {
-            return 0;
-            }
-            */
-            //for (i = 0 ; i < prices.length ; i++) {
-            //    prices.push(price[i].product.price/100);
-            //}
-            /*
-            console.log("prices alors ?" + prices);
-            let prices = [];
-            let price = (product.price);
-            let sum = 0;
-            for (let price of prices) {
-                sum += price;
-                return sum /prices.length // moyenne du prix total
-            }
-            console.log("sum alors ?" + sum);
-            showTotal.textContent += sum;
-            */
-            
-                        // essai 1 avec des chiffres déjà présents : marche pas prix égal objet affiche rien dans showTotal
-            /*let tab = [];
-            let prix = {0:10,1:20,2:30,3:40};
-            for (i = 0 ; i < tab.length ; i++) {
-                tab.push(prix[i]);
-                showTotal.textContent += tab;
-            }
-            */
-                        // essai 2 avec des chiffres déjà présents : marche pas prix égal objet, affiche tout l'objet avec l'index dans showTotal
-            /*
-            let tab = [];
-            let prix = {0:10,1:20,2:30,3:40};
-            //for (i = 0 ; i < tab.length ; i++) {
-                tab.push(JSON.stringify(prix));
-                showTotal.textContent += tab;
-            //}
-            console.log(typeof prix);
-            console.log("tab alors ? " + tab);
-            */
-
-                        // essai 3 avec des chiffres déjà présents : marche pas prix égal objet, affiche un array [] vide dans consolelog
-            /*
-            let tab = [];
-            let prix = {0:10,1:20,2:30,3:40};
-            for (i = 0 ; i < tab.length ; i++) {
-                tab.push(JSON.stringify(prix[i]));
-                showTotal.textContent += tab;
-            }
-            console.log(typeof prix);
-            console.log("tab alors ? " + JSON.stringify(tab));
-            */
-                        // essai 4 affiche tous les fruits 4 fois mais le push fonctionne
-            /*
-            var tab= new Array("Pommes", "Poires", "Ananas", "Cerise");
-            var nb=tab.push("Banane", "Fraise")
-            tab.join(", ");
-            console.log("Nombre d'éléments dans le tableau : "+nb);
-            showTotal.textContent += tab;
-            */
-                        // essai 5 résultat : répète 4 fois l'action car j'ai 4 produits dans l'article, mais push fonctionne indique 6 éléments
-            /*
-            var tab= new Array("1", "10", "20", "30");
-            var nb=tab.push("15", "40")
-            console.log("Nombre d'éléments dans le tableau : "+nb);
-            showTotal.textContent += tab;
-            */
-
-            // essai 5 résultat : nombre d'éléments undefined
-            /*
-            var tab= new Array(1, 10, 20, 30);
-            var nb;
-            console.log("Nombre d'éléments dans le tableau : "+ tab);
-            tab[0] = 45;
-            console.log("2: Nombre d'éléments dans le tableau : "+ tab)
-            for (let chiffre in tab){
-                let total = a + b;
-                return total
-            }
-            function somme (tab){
-                let total = a + b;
-                return total;
-            }
-            console.log(somme);
-            
-
-            fin test 5
-            */
-            /*for (i = 0 ; i < tab.length ; i++) {
-                nb=tab.push(15);
-                console.log(nb);
-                //showTotal.textContent += nb;
-            }*/
-
-            // 01-04 essai avec Nina et Sébastien array vide mais pas d'erreur sur le push
-            
-            let prices = [];
-            let price = product.price;
-            for (i = 0 ; i < price.length ; i++) {
-                prices.push(price[i]);
-                showTotal.textContent += prices;
-            }
-            console.log(prices);
-            //console.log(prices);
-            /*var tab = new Array();
-            var nb = tab.push(product.price);
-            console.log(" combien de prix nb? " + nb);
-            console.log(" combien de prix dans la tab ? " + tab);
-            tab[0] = prices;
-            console.log(" tab" + tab);
-            console.log(typeof prices);*/
-            //total.push(prices);
-
-            // essai avec for let of
-            /*for(let price of prices){
-                //
-                //addPrices(prices, total)
-                tab[0] = price;
-                console.log(" tab dans for" + tab);
-                console.log("le montant de cet article est de " + price/100); //price s'insère dans prices ?
-                /*total += prices;
-                console.log(typeof total);
-                showTotal.textContent += Number(total);*//*
-                
-            }*/
-            // essai avec for let in
-            /*
-            for(let i in prices){
-                //
-                //addPrices(prices, total)
-                console.log("le montant de cet article est de " + prices[i]/100); //price s'insère dans prices ?
-                total += prices[i];
-                console.log(typeof total);
-                showTotal.textContent += Number(total);
-                
-            }
-            */
-            
-            //localStorage.setItem("prices", JSON.stringify(prices));
-            //var sumPrice = [];
-            //var addPrices = [];
-            //addPrices = sumPrice.push(prices);
-            //console.log(prices);
-            //console.log(sumPrice);
-            //console.log(addPrices);
-            /*for(var i = 0; i < sumPrice.length ; i++){
-                    total += sumPrice[i];
-            }
-            total += (product.price);*/
-                //sumTotal = total
-            //console.log(typeof total);
-                //sumTotal = total.length * 
-            
-           //showTotal.innerHTML += ` ${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(total / 100)}`;
-            //console.log(cart[id]);
-           /* total = Number(product.price/100) ;
-            let sum = 0;
-            sum += (total);
-            showTotal.innerHTML += Number(total) ;
-            //console.log(total);
-            console.log(sum);*/
+            calcTotalCart += product.price/100;
+            totalCart = calcTotalCart;
+            console.log(typeof (totalCart));
+            console.log(totalCart);
+            showTotal.textContent = "Total de la commande : " + calcTotalCart + " € TTC";
     }
         displayTotal();
-    })
+    }) // fin de products.map
+    
      
 }; // fin de showCart
+*/
 
-// récupère le localStorage (listCart) qui contient les id des produits ajoutés au panier, 
-let dataStorage = localStorage.getItem("listCart");
-let products = JSON.parse(dataStorage); //le transforme pour être lisible 
 // si le localStorage contient des id/produits alors le panier s'affiche sinon message d'alerte
+/*
 if (products) {
     showCart(products);
 } else {
     alert('Aucun produit dans le panier');
 }
-                                // COMPTER le nombre de produit par id
-//let quantity = for(let i = 1 ;_id in dataStorage);
-//for (let i = 1 ; i < 21 ; i++)
-// for (let i = 0 ; i == data._id.length ; i++) {
-// for (let i = 0 ; i < data._id.length ; i++) {
-// for (let i = 0 ; i == data._id ; i++) {
-// for (let i = 0 ; i == data._id ; i++) {
-//for (let i = 0 ; i < data.length ; i++) { cannot read property 0 of null
-//for (let i = '' ; i == data.length ; i++) { affiche null
-//for (let i = [] ; i === data.length ; i++) {
-//for (let i = [] ; i === data.value ; i++) {
-//for (let i = 0 ; i < data.value.length ; i++) { cannot read property length
-
-//let showQuantity = document.querySelector('.qty');
-let quantity = products.length; // ne différencie pas les id entre elles, compte le nbr total d'articles
-/*if (products !== undefined){
-    alert("combien y'a t'il de données: " + products.length);
-    for (let i = products.value ; i <= products.length ; i+= products.length) {
-    quantity = i;
-}
-};*/
-
-/*if (products !== null){
-    products.forEach(function(item, index, array)){
-
-    }
-    quantity += 2;
-    showQuantity.textContent = quantity ;
-} else {
-    alert('marche pas');
-}*/
-/*for (let i = 0 ; i < products.value ; i++) {
- quantity[i].textContent = i;
-}*/
-
-// total de la commande :
-
-
+*/
+console.log("datastrorage c'est" + dataStorage);
+console.log("products c'est" + products);
+console.log("ce sont les produits" + JSON.stringify(products)); // affiche le contenu de l'objet cart {"id":quantité,etc}
 
 // Au clic du bouton le panier se vide
+
 let cleanBtn = document.querySelector('.cleanBtn');
 cleanBtn.addEventListener('click', () => {
     cleanCart();
 });
-// fonction qui nettoie le panier (localStorage correspondant)
+// fonction qui vide le panier (le localStorage correspondant)
 function cleanCart () {
     alert('Le panier a été vidé');
-    localStorage.removeItem('listCart');
+    localStorage.removeItem('cart');
     listCart.style.display = 'none';
     quantityProducts.style.display = 'none';
+    total.style.display = "none"; // doit enlever la mention du prix total de la commande
+
     //window.location.reload(); rafraichit la page autre façon de faire disparaitre la listCart
-    //rajouter une fonction pour enlever les id de l'écran avant rafraichissement de la page panier
 }
+//suite de la commande
 //                              découvre le formulaire au clic du btn commander
 let orderBtn = document.querySelector('#order');
 let form = document.querySelector('#block-form');
@@ -286,11 +210,3 @@ orderBtn.addEventListener('click', () => {
 /*for (let id in DataStorage) {
     console.log(`Voici l'index ${id} et l'identifiant ${DataStorage[id]} ${[id]}`) ;
 }*/
-
-
-// 01/04 essai pour récupérer les prix via le html créé par JS
-/*
-let getPrices = document.querySelector('.getPrices');
-console.log("alors getPrices ? "+ getPrices);
-localStorage.setItem("pricesStorage", getPrices);
-*/
