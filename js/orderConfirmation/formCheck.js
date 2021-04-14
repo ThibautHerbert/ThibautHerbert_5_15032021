@@ -13,7 +13,7 @@ let confirmOrder= document.querySelector('#confirmOrder');
 
 // fonctions qui ont pour but de vérifier la validité des champs inscrits dans le formulaire
 function firstNameChecker(firstNameInput) { 
-    if(! firstNameInput.value.match(/^([a-zA-Z- àâäéèêëïîôöùûüç]+)$/)) {//regex qui ne prend que les lettres min et max, les tirets et les espaces
+    if(! firstNameInput.value.match(/^([a-zA-Z- àâäéèêëïîôöùûüç]+)$/)) {//regex qui ne prend que les lettres min et maj, les lettres avec accents, les tirets et les espaces
         firstNameInput.style.borderBottom = '#dc3545 solid 4px';
         let errorLabel = document.querySelector('.errorFirstName');
         errorLabel.style.display = 'block';
@@ -27,7 +27,7 @@ function firstNameChecker(firstNameInput) {
 };
 
 function lastNameChecker(lastNameInput) { 
-    if(! lastNameInput.value.match(/^([a-zA-Z- 'àâäéèêëïîôöùûüç]+)$/)) {//regex qui ne prend que les lettres min et max, les tirets et les espaces
+    if(! lastNameInput.value.match(/^([a-zA-Z- 'àâäéèêëïîôöùûüç]+)$/)) {//regex qui ne prend que les lettres min et maj, les lettres avec accents, les apostrophes, les tirets et les espaces
         lastNameInput.style.borderBottom = '#dc3545 solid 4px';
         let errorLabel = document.querySelector('.errorLastName');
         errorLabel.style.display = 'block';
@@ -59,13 +59,6 @@ function zipCodeChecker(zipCodeInput) {
         zipCodeInput.style.borderBottom = '#dc3545 solid 4px';
         let errorLabel = document.querySelector('.errorZip');
         errorLabel.style.display = 'block';
-        //let spanError = document.createElement("p");
-        //let errorZip = document.querySelector('.errorSpan');
-        //let errorZip = document.querySelector('.errorSpan');
-        //errorZip.appendChild(spanError);
-        //zipCodeInput.appendChild(spanError);
-        //spanError.innerHTML= "erreur !";
-        //errorZip.style.display = 'block';
         return false;
     } else {
         let errorLabel = document.querySelector('.errorZip');
@@ -76,7 +69,7 @@ function zipCodeChecker(zipCodeInput) {
 };
 
 function cityChecker(cityInput) {
-    if(! cityInput.value.match(/^([a-zA-Z- 'àâäéèêëïîôöùûüç]+)$/)) {  /*|| countryInput.match(/^([a-zA-Z])$/))*/ //regex qui ne prend que les lettes min et max
+    if(! cityInput.value.match(/^([a-zA-Z- 'àâäéèêëïîôöùûüç]+)$/)) {  /*|| countryInput.match(/^([a-zA-Z])$/))*/ //regex qui ne prend que les lettres min et maj, les lettres avec accents, les apostrophes et les espaces
         cityInput.style.borderBottom = '#dc3545 solid 4px';
         let errorLabel = document.querySelector('.errorCity');
         errorLabel.style.display = 'block';
@@ -90,7 +83,7 @@ function cityChecker(cityInput) {
 };
 
 function countryChecker(countryInput) {
-    if(! countryInput.value.match(/^([a-zA-Z- 'àâäéèêëïîôöùûüç]+)$/)) { //regex qui ne prend que les lettes min et max    
+    if(! countryInput.value.match(/^([a-zA-Z- 'àâäéèêëïîôöùûüç]+)$/)) { //regex qui ne prend que les lettes min et maj, les chiffres et les tirets et les espaces, et les apostrophes   
         countryInput.style.borderBottom = '#dc3545 solid 4px';
         let errorLabel = document.querySelector('.errorCountry');
         errorLabel.style.display = 'block';
@@ -104,7 +97,7 @@ function countryChecker(countryInput) {
 };
 
 function addressChecker(addressInput) {
-    if(! addressInput.value.match(/[0-9,]{1,4}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç']+)+/)) {  //regex qui ne prend que les lettres min et max, les chiffres et les tirets et les espaces, et les apostrophes
+    if(! addressInput.value.match(/[0-9,]{1,4}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç']+)+/)) {  //regex qui ne prend que les lettres min et maj, les chiffres et les tirets et les espaces, et les apostrophes
         addressInput.style.borderBottom = '#dc3545 solid 4px';
         let errorLabel = document.querySelector('.errorAddress');
         errorLabel.style.display = 'block';
@@ -146,7 +139,6 @@ if(dataStorage){ // la condition empêche une erreur lorsque le panier est vide
                 "address": addressInput.value,
                 "city": cityInput.value,
                 "email": emailInput.value
-                
             };
             var contact2 = {                        // partie 2 du formulaire séparée
                 "country": countryInput.value,

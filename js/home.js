@@ -10,7 +10,7 @@ const showFurnitures = async() => {
 		products.innerHTML = `<div class="alert alert-info">Aucun produit n'est disponible</div>`
 		return
 	}
-// création d'une map pour faire apparaître un bloc pour chaque produit
+	// création d'une map pour faire apparaître un bloc pour chaque produit
 	furnitures.map(furniture => {
 		showContent ();
 		function showContent () {

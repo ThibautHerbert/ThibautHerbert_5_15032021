@@ -3,7 +3,7 @@ const pictureProduct = document.querySelector("#pictureProduct");
 const descriptionProduct = document.querySelector("#descriptionProduct");
 let clickForCart = document.querySelector('#cart');
 let varnishDisabled = document.querySelector('.varnishDisabled');
-// déclarations de variables realtives au chargement du produit sélectionné
+// déclarations de variables relatives au chargement du produit sélectionné
 let url = new URL(window.location.href); // permet de charger la page product via le lien href de la page home
 let id = url.searchParams.get("id"); // permet de cibler l'élément clé (identifiant : id)pour le chargement de l'URL
 
