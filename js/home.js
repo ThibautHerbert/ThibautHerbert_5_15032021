@@ -23,7 +23,7 @@ const showFurnitures = async() => {
 								<p class="card-text">${furniture.description}</p>
 								<p class="card-text">Disponible</p>
 								<p class="">${Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }, { maximumSignificantDigits: 3 }).format(furniture.price/100)} </p>
-								<a href="product/product.html?id=${furniture._id}" class="btn btn-info">En savoir plus</a>
+								<a href="js/product/product.html?id=${furniture._id}" class="btn btn-info">En savoir plus</a>
 							</div>
 						</div>
 					</div>`
@@ -32,12 +32,5 @@ const showFurnitures = async() => {
 	})
 			
 };
-
 showFurnitures();
-// autre méthode pour afficher les images du carousel
-/* 
-let carouselImg1 = document.querySelector('.carousel1');
-	let carouselImg2 = document.querySelector('.carousel2');
-	carouselImg1.setAttribute("src", "http://localhost:3000/images/oak_2.jpg");
-	carouselImg2.setAttribute("src", "http://localhost:3000/images/oak_4.jpg");	
-*/
+

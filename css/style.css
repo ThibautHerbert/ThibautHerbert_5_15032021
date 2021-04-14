@@ -9964,6 +9964,24 @@ h3 {
   display: none;
 }
 
+.errorDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.errorFirstName,
+.errorLastName,
+.errorAddress,
+.errorZip,
+.errorCity,
+.errorCountry,
+.errorEmail {
+  background: #dc3545;
+  color: white;
+  padding: 0px 5px;
+  display: none;
+}
+
 @font-face {
   font-family: "Montserrat";
   src: url("../font/Montserrat/Montserrat-Regular.ttf") format("truetype");

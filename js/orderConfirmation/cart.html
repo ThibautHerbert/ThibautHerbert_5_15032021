@@ -4,14 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Orifurniture - panier de commandes</title>
-	<link rel="shortcut icon" type="image/png" href="../image/orinoco.png">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="shortcut icon" type="image/png" href="../../image/orinoco.png">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 </head>
 <body>
 	<div class="container">
 		<header class="fixed-top">
 			<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
-				<a class="navbar-brand text-success" href="../index.html">Orifurniture</a>
+				<a class="navbar-brand text-success" href="../../index.html">Orifurniture</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -19,7 +19,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				  <ul class="navbar-nav mr-auto">
 					<li class="nav-item ">
-						<a class="nav-link text-primary" href="../index.html">Accueil</a>
+						<a class="nav-link text-primary" href="../../index.html">Accueil</a>
 					  </li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,7 +64,7 @@
 								<th scope="col">#</th>
 								<th scope="col">Identifiant produit</th>
 								<th scope="col">Nom du produit</th>
-								<th scope="col">Prix</th>
+								<th scope="col">Prix unitaire</th>
 								<th scope="col">Quantité</th>
 							  </tr>
 							</thead>
@@ -76,8 +76,8 @@
 					<!--<div class="card-body" id="listCart">-->
 					</div>
 					<div class="card-body">
-						<p class="card-text text-center" id="quantityProducts">Vous avez dans votre panier  </p>
-						<p class="card-text text-center" id="total">Total de la commande : </p>
+						<p class="card-text text-center" id="quantityProducts">Vous avez dans votre panier <span></span> article(s)</p>
+						<p class="card-text text-center font-weight-bold" id="total">Total de la commande : <span></span> TTC</p>
 						<button type="button" class="btn btn-danger cleanBtn"><small>Vider le panier</small></button>
 					</div>
 				</div>
@@ -100,42 +100,49 @@
 				<form class="mx-5">
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<label for="firstNameInput">Prénom</label>
-							<input type="text" class="form-control" id="firstNameInput" aria-describedby="firstNameHelp" placeholder="Sophie" required>
-							<small id="firstNameHelp" class="form-text text-muted">Indiquez votre prénom.</small>
+							<label for="firstNameInput" class="errorLabel">Prénom</label>
+							<input type="text" class="form-control error" id="firstNameInput" aria-describedby="firstNameHelp" placeholder="Sophie" required>
+							<small id="firstNameHelp" class="form-text text-muted errorText">Indiquez votre prénom.</small>
+							<div class="errorDiv"><span class="errorFirstName"> erreur ! </span></div>
 						</div>
 						<div class="form-group col-md-6">
 							<label for="lastNameInput">Nom</label>
 							<input type="text" class="form-control" id="lastNameInput" aria-describedby="lastNameHelp" placeholder="Durand" required>
 							<small id="lastNameHelp" class="form-text text-muted">Indiquez votre nom de famille.</small>
+							<div class="errorDiv"><span class="errorLastName"> erreur ! </span></div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="addressInput">Adresse</label>
 						<input type="text" class="form-control" id="addressInput" aria-describedby="addressHelp" placeholder="10 rue de la Paix" required>
 						<small id="addressHelp" class="form-text text-muted">Indiquez votre adresse postale avec le numéro de rue.</small>
+						<div class="errorDiv"><span class="errorAddress"> erreur ! </span></div>
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-2">
 							<label for="zipCodeInput">CP</label>
 							<input type="text" class="form-control" id="zipCodeInput" aria-describedby="cpHelp" placeholder="44000" required>
 							<small id="zipCodeHelp" class="form-text text-muted">Indiquez votre code postal.</small>
+							<div class="errorDiv"><span class="errorZip"> erreur ! </span></div>
 						</div>
 						<div class="form-group col-md-5">
 							<label for="cityInput">Ville</label>
 							<input type="text" class="form-control" id="cityInput" aria-describedby="cityHelp" placeholder="Nantes" required>
 							<small id="cityHelp" class="form-text text-muted">Indiquez votre ville.</small>
+							<div class="errorDiv"><span class="errorCity"> erreur ! </span></div>
 						</div>
 						<div class="form-group col-md-5">
 							<label for="countryInput">Pays</label>
 							<input type="text" class="form-control" id="countryInput" aria-describedby="countryHelp" placeholder="France" required> 
 							<small id="countryHelp" class="form-text text-muted">Indiquez votre pays.</small>
+							<div class="errorDiv"><span class="errorCountry"> erreur ! </span></div>
 						</div>
 					</div>
 					<div class="form-group">
 							<label for="emailInput">Adresse Email</label>
 							<input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="sophiedurand@protonmail.com" required>
 							<small id="emailHelp" class="form-text text-muted">Indiquez votre adresse courriel.</small>
+							<div class="errorDiv"><span class="errorEmail"> erreur ! </span></div>
 					</div>
 					<div class="form-group form-check">
 					<input type="checkbox" class="form-check-input" id="exampleCheck1">
