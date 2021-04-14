@@ -7,16 +7,22 @@
 .jumbotron {
     transform:translateY(20px);
 }
+
+// carousel
+    // media query carousel
+.carouselDisplay{
+    @include mobile-only{
+        display: none;
+    }
+}
+.colorArrow:hover{
+    background: $warning;
+    //color: blanchedalmond;
+}
 // style bordure sur les cards
 .borderPlus{
     border: solid 10px $woodDarker;
 }
-// style bordure dans le footer
-/* pas utilisé
-.borderFooter{
-    border: solid 5px $white;
-    background: $dark;
-}*/
 
 // apparition formulaire - page panier uniquement
 #block-form{

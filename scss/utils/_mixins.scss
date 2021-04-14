@@ -1,0 +1,6 @@
+//mixins
+@mixin mobile-only{
+    @media screen and (min-width: map-get($breakpoints, minimobile)) and (max-width: map-get($breakpoints, tablet-min)){
+        @content;
+    }
+}

@@ -9951,15 +9951,20 @@ h3 {
   transform: translateY(20px);
 }
 
+@media screen and (min-width: 319px) and (max-width: 768px) {
+  .carouselDisplay {
+    display: none;
+  }
+}
+
+.colorArrow:hover {
+  background: #433027;
+}
+
 .borderPlus {
   border: solid 10px #433027;
 }
 
-/* pas utilisé
-.borderFooter{
-    border: solid 5px $white;
-    background: $dark;
-}*/
 #block-form {
   display: none;
 }
@@ -9999,6 +10004,12 @@ h3 {
   src: url("../font/Redressed/Redressed-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+@media screen and (min-width: 319px) and (max-width: 768px) {
+  h1 {
+    font-size: xx-large;
+    margin-top: 10px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
