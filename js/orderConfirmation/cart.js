@@ -75,16 +75,15 @@ if (productsArray) {
     let orderBtn = document.querySelector('#order');
     let form = document.querySelector('#block-form');
     if (orderBtn) {//empêche une erreur valeur nulle sur la page de confirmation de commande sur la fonction événement
-    orderBtn.addEventListener('click', () => {
-        form.style.display = 'block';
-    });
+        orderBtn.addEventListener('click', () => {
+            form.style.display = 'block';
+        });
     };
     // fonction événement : Au clic du bouton le panier se vide s'il y a des produits
     if(cleanBtn) { //empêche une erreur valeur nulle sur la page de confirmation de commande sur la fonction événement
-    cleanBtn.addEventListener('click', () => {
-        cleanCart();
-        //showCart();
-    });
+        cleanBtn.addEventListener('click', () => {
+            cleanCart();
+        });
     }
 } else {
     alert('Aucun produit dans le panier');
