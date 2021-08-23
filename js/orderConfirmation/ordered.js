@@ -25,7 +25,7 @@ if (contact) {
     title1.textContent = "Malheureusement un problème est survenu, votre commande n'a pas été envoyée !";
     title2.textContent = 'Veuillez vérifier vos ajouts au panier';
     showNumOrdered.textContent = "Vous n'avez pas ajouté d'article dans votre panier !";
-    showNames.textContent = ' Aucune addresse renseignée ';
+    showNames.textContent = ' Aucune adresse renseignée ';
     showAddress.textContent = ' ';
     showZipCity.textContent = ' ';
 }

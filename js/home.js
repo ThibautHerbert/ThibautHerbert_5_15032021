@@ -1,7 +1,20 @@
 const products = document.querySelector(".products");
 //appel de l'API via une fonction async await avec la méthode fetch
+// url Api en version distante ou en version localhost
+let urlApiServer = "https://oc-p5-api.herokuapp.com/api/furniture";
+let urlApiLocalHost = "http://localhost:3000/api/furniture";
+
 const fetchFurnitures = async() =>{
-	return await fetch("http://localhost:3000/api/furniture").then(res => res.json());
+	try {
+        return await fetch(`${urlApiLocalHost}`).then(res => res.json());
+    } catch (error) {
+        console.log('Serveur localhost non connecté !')
+    }
+    try {
+        return await fetch(`${urlApiServer}`).then(res => res.json());
+    } catch (error) {
+        console.log('Serveur déconnecté, essayez en version localhost !')
+    }
 };
 // affichage des produits contenus dans l'API
 const showFurnitures = async() => {

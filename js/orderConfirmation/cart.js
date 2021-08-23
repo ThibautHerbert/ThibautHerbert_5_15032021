@@ -4,7 +4,9 @@ let dataStorage = localStorage.getItem("cart");
 let productsArray = JSON.parse(dataStorage); //converti les données pour être lisible 
 // recherche complexe dans le DOM
 let cleanBtn = document.querySelector('.cleanBtn'); // bouton vider le panier
-
+// url Api en version distante ou en version localhost
+let urlApiServer = "https://oc-p5-api.herokuapp.com/api/furniture";
+let urlApiLocalHost = "http://localhost:3000/api/furniture";
 // fonction qui vide le panier (le localStorage correspondant)
 function cleanCart () {
     alert('Le panier a été vidé');
@@ -17,8 +19,19 @@ function cleanCart () {
     localStorage.removeItem("formStorage2");
 }
 //appel de l'API via une fonction async await avec la méthode fetch
+
+
 const fetchFurniture = async() =>{
-	return await fetch(`http://localhost:3000/api/furniture`).then(res => res.json());
+    try {
+        return await fetch(`${urlApiLocalHost}`).then(res => res.json());
+    } catch (error) {
+        console.log('Serveur localhost non connecté !')
+    }
+    try {
+        return await fetch(urlApiServer).then(res => res.json());
+    } catch (error) {
+        console.log('Serveur déconnecté, essayez en version localhost !')
+    }
 };
 
 // fonction qui permet d'afficher le contenu du panier

@@ -2,10 +2,12 @@
 const pictureProduct = document.querySelector("#pictureProduct");
 const descriptionProduct = document.querySelector("#descriptionProduct");
 let clickForCart = document.querySelector('#cart');
-let varnishDisabled = document.querySelector('.varnishDisabled');
 // déclarations de variables relatives au chargement du produit sélectionné
 let url = new URL(window.location.href); // permet de charger la page product via le lien href de la page home
 let id = url.searchParams.get("id"); // permet de cibler l'élément clé (identifiant : id)pour le chargement de l'URL
+// url Api en version distante ou en version localhost
+let urlApiServer = "https://oc-p5-api.herokuapp.com/api/furniture";
+let urlApiLocalHost = "http://localhost:3000/api/furniture";
 
 // fonction pour faire apparaitre les options de vernis disponible par produit (nombre d'option irrégulier selon les produits)
 function showVarnish (varnishs) {
@@ -17,7 +19,19 @@ function showVarnish (varnishs) {
 }
 //appel de l'API via une fonction async await avec la méthode fetch avec un paramètre qui récupère la variable id
 const fetchFurniture = async(id) =>{
-	return await fetch(`http://localhost:3000/api/furniture/${id}`).then(res => res.json());
+    try {
+        return await fetch(`${urlApiLocalHost}/${id}`).then(res => res.json());
+    //https://oc-p5-api.herokuapp.com/api/furniture
+    } catch (error) {
+        console.log('Serveur localhost non connecté !')
+    }
+    try {
+        return await fetch(`${urlApiServer}/${id}`).then(res => res.json());
+    //
+    } catch (error) {
+        console.log('Serveur déconnecté, essayez en version localhost !')
+    }
+	
 };
 // affichage d'un seul produit par page via la récupération de l'id produit dont les informations sont contenus dans l'API 
 const showFurniture = async(id) => {
@@ -72,5 +86,5 @@ clickForCart.addEventListener('click', () => {
         alert("Vous avez ajouté un article dans votre panier !");
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart)); // stocke l'id et la quantité indiqué dans un localStorage
+    localStorage.setItem("cart", JSON.stringify(cart)); // stocke l'id et la quantité indiquée dans un localStorage
 });
